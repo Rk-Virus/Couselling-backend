@@ -7,7 +7,7 @@ def index(request):
     return render(request, 'index.html',params)
 
 def about(request):
-    return HttpResponse("this is about page")
+    return render(request, 'about.html')
 
 def signup(request):
     return render(request, 'signUp.html')
