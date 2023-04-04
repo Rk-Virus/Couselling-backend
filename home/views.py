@@ -19,23 +19,25 @@ def signup(request):
     return render(request, 'home/signUp.html')
 
 def submission(request):
-    formType = request.POST.get('formType','default')
-    print(formType)
-    if formType == "contact" :
-        name = request.POST.get('name','')
-        email = request.POST.get('email','')
-        print(name,email)
-        contact = Contact(name=name,email=email)
-        contact.save()
-    # if formType == "signup" :
-    #     name = request.POST.get('name','')
-    #     email = request.POST.get('email','')
-    #     passwd = request.POST.get('pass','')
-    #     dob = request.POST.get('dob','')
+    # for submitting on the same page 
+    if request.method == 'POST':
+        formType = request.POST.get('formType','default')
+        print(formType)
+        if formType == "contact" :
+            name = request.POST.get('name','')
+            email = request.POST.get('email','')
+            print(name,email)
+            contact = Contact(name=name,email=email)
+            contact.save()
+        # if formType == "signup" :
+        #     name = request.POST.get('name','')
+        #     email = request.POST.get('email','')
+        #     passwd = request.POST.get('pass','')
+        #     dob = request.POST.get('dob','')
 
-    #     print(name,email)
-    #     user = User(name=name,email=email, password=passwd, dob=dob)
-    #     user.save()
-    
+        #     print(name,email)
+        #     user = User(name=name,email=email, password=passwd, dob=dob)
+        #     user.save()
+        
     return HttpResponse(f"{formType}  form submited. Thanks!")
 
