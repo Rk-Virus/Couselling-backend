@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 def index(request):
     # return HttpResponse("this is home page")
+    messages.info(request, "Welcome to Aksar ;)")
     params = {'siteName':'Aksar','phoneNo':'+911234567890'}
     return render(request, 'home/index.html',params)
 
