@@ -1,7 +1,17 @@
 from django.contrib import admin
 from .models import User,Contact
 
-# Register your models here.
-admin.site.register(User)
+#Altering admin panels
+class UserModalAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email')
+    search_fields=('name','email')
+    list_per_page=10
 
-admin.site.register(Contact)
+class ContactModalAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email')
+    search_fields=('name','email')
+    list_per_page=10
+
+# Register your models here.
+admin.site.register(User, UserModalAdmin)
+admin.site.register(Contact, ContactModalAdmin)
