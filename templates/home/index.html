@@ -1,0 +1,25 @@
+{% extends 'basic.html' %}
+
+{% block body %}
+
+{% if messages %}
+{% for message in messages %}
+<h4>Message : {{message}}</h4>
+{% endfor %}
+{% endif %}
+
+home page contentl...
+
+{% if user.is_authenticated %}
+    <p>You are logged in as {{request.user}}</p>
+
+    <button><a href="/logout">Logout</a></button>
+{% else %}
+
+    <p>you are not logged in!</p>
+
+{% endif %}
+
+
+{% endblock %}
+

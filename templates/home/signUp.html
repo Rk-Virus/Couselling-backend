@@ -1,0 +1,25 @@
+{% extends 'basic.html' %}
+
+{% block title %}Join Us{% endblock %}
+
+{% block body %}
+
+    <form action="/submission" method="post"> {% csrf_token %}
+        {% comment %} sending this input for checking form type  {% endcomment %}
+        <input type="text" name="formType" value="signup" style="display:none" >
+        {% comment %} input ends   {% endcomment %}
+        <label for="name">User Name: </label>
+        <input type="text" name="uname" placeholder="Type username" id="name"> <br><br>
+        <label for="dob">Date of birth: </label> 
+        <input type="date" name="dob" id="dob">
+        <br><br>
+        <label for="email">E.mail : </label>
+        <input type="email" name="email" placeholder="username@gmail.com" id="email"> 
+        <Br> <br>
+        <label for="pass">Passward : </label>
+        <input type="password" name="password" id="pass" placeholder="********">
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
