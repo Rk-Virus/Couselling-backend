@@ -23,17 +23,17 @@ class Blog(models.Model):
 
         super().save(*args, **kwargs)
 
-class counsel(models.Model):
-    client_name= models.CharField(max_length=60)
-    date_requested= models.DateField()
+# class counsel(models.Model):
+#     client_name= models.CharField(max_length=60)
+#     date_requested= models.DateField()
 
-class therapist(model.Models):
-    th_name= models.CharField(max_length=80)
+# class therapist(models.Models):
+#     th_name= models.CharField(max_length=80)
 
-class  appointment(models.Models):
-    client=models.TextField()
-    therapist=models.CharField(max_length=100)
-    starting=models.DateTimeField()
-    ending=models.DateTimeField()
+# class  appointment(models.Models):
+#     client=models.TextField()
+#     therapist=models.CharField(max_length=100)
+#     starting=models.DateTimeField()
+#     ending=models.DateTimeField()
 
 
