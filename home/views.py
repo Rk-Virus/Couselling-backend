@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
 
+from django_nextjs.render import render_nextjs_page_sync
+
 
 # Create your views here.
 def index(request):
@@ -11,6 +13,8 @@ def index(request):
     messages.info(request, "Welcome to Aksar ;)")
     params = {'siteName':'Aksar','phoneNo':'+911234567890'}
     return render(request, 'home/index.html',params)
+    # return render_nextjs_page_sync(request)
+
 
 def about(request):
     return render(request, 'home/about.html')

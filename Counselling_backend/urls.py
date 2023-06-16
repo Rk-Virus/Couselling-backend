@@ -42,4 +42,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', include('home.urls')),
     path('blog/', include('blog.urls')),
+    path("", include("django_nextjs.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

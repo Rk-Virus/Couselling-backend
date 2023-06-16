@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)4&i@v-t26l2drwg^g^r5xqu(22ln2_d&zj$&gejaw!c#ijh-n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
    'drf_yasg',
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
+    "django_nextjs",
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'aksardb',
         'USER': 'postgres',
-        'PASSWORD': 'babu2003p',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost'
     }
 }
