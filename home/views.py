@@ -15,11 +15,6 @@ def index(request):
     return render(request, 'home/index.html',params)
     # return render_nextjs_page_sync(request)
 
-
-def about(request):
-    return render(request, 'home/about.html')
-    # return HttpResponse("this is about page")
-
 def contact(request):
     return render(request, 'home/contact.html')
     # return HttpResponse("this is contact page")

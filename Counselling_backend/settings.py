@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'rest_framework',
-    'django.contrib.staticfiles',  # required for serving swagger ui's css/js files
-   'drf_yasg',
+    'django.contrib.staticfiles',
+    'drf_yasg',
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
     "django_nextjs",
@@ -125,6 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    # "/var/www/static/",
+]
 
 # message tags 
 MESSAGE_TAGS = {
