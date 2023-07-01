@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)4&i@v-t26l2drwg^g^r5xqu(22ln2_d&zj$&gejaw!c#ijh-n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '.vercel.app']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
     "django_nextjs",
+    "Counselling_backend"
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Counselling_backend.wsgi.application'
+# vercel_app/settings.py
+WSGI_APPLICATION = 'Counselling_backend.wsgi.app'
 
 
 # Database
