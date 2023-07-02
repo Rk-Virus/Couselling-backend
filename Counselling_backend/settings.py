@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
     "django_nextjs",
-    "Counselling_backend"
 ]
 
 MIDDLEWARE = [
