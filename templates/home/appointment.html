@@ -1,0 +1,671 @@
+{% extends 'basic.html' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Appointment</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Appointment</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page">
+        <div class="container">
+        <form action="/appointment" method='POST'>
+            <h3>Answer the questions to book an appointment :    </h3>
+        
+            {% comment %} question 1  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. What type of therapy are you looking for?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="type_of_therapy" value="Individual" id="radio1Example1" />
+                    <label class="form-check-label" for="radio1Example1">
+                        Individual (for myself)
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" value="Couples" name="type_of_therapy" id="radio1Example2" />
+                    <label class="form-check-label" for="radio1Example2">
+                        Couples (for myself and my partner)
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="type_of_therapy" value="Teen" id="radio1Example3" />
+                    <label class="form-check-label" for="radio1Example3">
+                        Teen (for my child)
+                    </label>
+                </div>
+            </div>
+                
+            <hr>
+            <label class="mx-5">Let's walk through the process of finding the best Counsellor for you! We'll start with some basic questions</label>
+            <hr>
+
+            {% comment %} question 2  {% endcomment %}
+             <div class="question my-5">
+                <p class="text-left"><strong>Q. What is your gender identity?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="sex" value="male"  id="radio2Example1" />
+                    <label class="form-check-label" for="radio2Example1">
+                        Male
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="sex" value="female" id="radio2Example2" />
+                    <label class="form-check-label" for="radio2Example2">
+                        Female
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="sex" value="others" id="radio2Example3" />
+                    <label class="form-check-label" for="radio2Example3">
+                        Others
+                    </label>
+                </div>
+                </div>
+
+                {% comment %} question 3  {% endcomment %}
+             <div class="question my-5">
+                <p class="text-left"><strong>Q. How old are you?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <label class="form-check-label" for="ageNumber">
+                        Select age : 
+                  </label>
+                    <input required  type="number" name="age"  id="ageNumber" min="0" max="100" />
+                </div>
+                </div>
+
+
+             {% comment %} question 4  {% endcomment %}
+             <div class="question my-5">
+                <p class="text-left"><strong>Q. How do you identity?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="gender" value="Straight"  id="radio3Example1" />
+                    <label class="form-check-label" for="radio3Example1">
+                        Straight
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="gender" value="Gay" id="radio3Example2" />
+                    <label class="form-check-label" for="radio3Example2">
+                        Gay
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="gender" value="Lesbian" id="radio3Example3" />
+                    <label class="form-check-label" for="radio3Example3">
+                        Lesbian
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="gender" value="Bi or Pan" id="radio3Example4" />
+                    <label class="form-check-label" for="radio3Example4">
+                        Bi or Pan
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="gender" value="Prefer not to say" id="radio3Example5" />
+                    <label class="form-check-label" for="radio3Example5">
+                        Prefer not to say
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="gender" value="Others" id="radio3Example6" />
+                    <label class="form-check-label" for="radio3Example6">
+                        Others
+                    </label>
+                </div>
+                </div>
+
+            {% comment %} question 5  {% endcomment %}
+             <div class="question my-5">
+                <p class="text-left"><strong>Q. What is your relationship status?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="relationship_status" value="Single"  id="radio4Example1" />
+                    <label class="form-check-label" for="radio4Example1">
+                        Single
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="relationship_status" value="In a relationship" id="radio4Example2" />
+                    <label class="form-check-label" for="radio4Example2">
+                        In a relationship
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="relationship_status" value="Married" id="radio4Example3" />
+                    <label class="form-check-label" for="radio4Example3">
+                        Married
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="relationship_status" value="Divorced" id="radio4Example4" />
+                    <label class="form-check-label" for="radio4Example4">
+                        Divorced
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="relationship_status" value="Widowed" id="radio4Example5" />
+                    <label class="form-check-label" for="radio4Example5">
+                        Widowed
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="relationship_status" value="Others" id="radio4Example6" />
+                    <label class="form-check-label" for="radio4Example6">
+                        Others
+                    </label>
+                </div>
+                </div>
+
+                
+            {% comment %} question 6  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Do you consider yourself to be religious?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="religious_status" value="Yes"  id="radio5Example1" />
+                    <label class="form-check-label" for="radio5Example1">
+                        Yes
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="religious_status" value="No" id="radio5Example2" />
+                    <label class="form-check-label" for="radio5Example2">
+                        No
+                    </label>
+                </div>
+                </div>
+
+
+                {% comment %} question 7  {% endcomment %}
+             <div class="question my-5">
+                <p class="text-left"><strong>Q. Which religion do you identify with? (Optional)</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="religion" value="Christianity"  id="radio6Example1" />
+                    <label class="form-check-label" for="radio6Example1">
+                        Christianity
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="religion" value="Judaism" id="radio6Example2" />
+                    <label class="form-check-label" for="radio6Example2">
+                        Judaism
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="religion" value="Islam" id="radio6Example3" />
+                    <label class="form-check-label" for="radio6Example3">
+                        Islam
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="religion" value="Others" id="radio6Example4" />
+                    <label class="form-check-label" for="radio6Example4">
+                        Others
+                    </label>
+                </div>
+                </div>
+
+
+            {% comment %} question 8  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Do you consider yourself to be spiritual?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="spritual_status" value="Yes"  id="radio7Example1" />
+                    <label class="form-check-label" for="radio7Example1">
+                        Yes
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="spritual_status" value="No" id="radio7Example2" />
+                    <label class="form-check-label" for="radio7Example2">
+                        No
+                    </label>
+                </div>
+                </div>
+
+
+            {% comment %} question 9  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Have you ever been in therapy before?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="therapy_status" value="Yes"  id="radio8Example1" />
+                    <label class="form-check-label" for="radio8Example1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="therapy_status" value="No" id="radio8Example2" />
+                    <label class="form-check-label" for="radio8Example2">
+                        No
+                    </label>
+                </div>
+            </div>
+
+
+            {% comment %} question 10  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. What led you to consider therapy today?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I've been feeling depressed"  id="checkbox1Example1" />
+                    <label class="form-check-label" for="checkbox1Example1">
+                        I've been feeling depressed
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I feel anxious or overwhelmed" id="checkbox1Example2" />
+                    <label class="form-check-label" for="checkbox1Example2">
+                        I feel anxious or overwhelmed
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="My mood is interfering with my job/school performance" id="checkbox1Example3" />
+                    <label class="form-check-label" for="checkbox1Example3">
+                        My mood is interfering with my job/school performance
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I struggle with building or maintaining relationships" id="checkbox1Example4" />
+                    <label class="form-check-label" for="checkbox1Example4">
+                        I struggle with building or maintaining relationships
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I can't find purpose and meaning in my life" id="checkbox1Example5" />
+                    <label class="form-check-label" for="checkbox1Example5">
+                        I can't find purpose and meaning in my life
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I am grieving" id="checkbox1Example6" />
+                    <label class="form-check-label" for="checkbox1Example6">
+                        I am grieving
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I have experienced trauma" id="checkbox1Example7" />
+                    <label class="form-check-label" for="checkbox1Example7">
+                        I have experienced trauma
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I need to talk through a specific challenge" id="checkbox1Example8" />
+                    <label class="form-check-label" for="checkbox1Example8">
+                        I need to talk through a specific challenge
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I want to gain self confidence" id="checkbox1Example9" />
+                    <label class="form-check-label" for="checkbox1Example9">
+                        I want to gain self confidence
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I want to improve myself but I don't know where to start" id="checkbox1Example10" />
+                    <label class="form-check-label" for="checkbox1Example10">
+                        I want to improve myself but I don't know where to start
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="Recommended to me (friend, family, doctor)" id="checkbox1Example11" />
+                    <label class="form-check-label" for="checkbox1Example11">
+                        Recommended to me (friend, family, doctor)
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="Just exploring" id="checkbox1Example12" />
+                    <label class="form-check-label" for="checkbox1Example12">
+                        Just exploring
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="Other" id="checkbox1Example13" />
+                    <label class="form-check-label" for="checkbox1Example13">
+                        Other
+                    </label>
+                </div>
+                </div>
+
+
+            {% comment %} question 11  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. What are your expectations from your therapist? A Counsellor who...</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Listens"  id="checkbox2Example1" />
+                    <label class="form-check-label" for="checkbox2Example1">
+                        Listens
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Explores my past" id="checkbox2Example2" />
+                    <label class="form-check-label" for="checkbox2Example2">
+                        Explores my past
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Teaches me new skills" id="checkbox2Example3" />
+                    <label class="form-check-label" for="checkbox2Example3">
+                        Teaches me new skills
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="challenges my beliefs" id="checkbox2Example4" />
+                    <label class="form-check-label" for="checkbox2Example4">
+                        challenges my beliefs
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Assigns me homework" id="checkbox2Example5" />
+                    <label class="form-check-label" for="checkbox2Example5">
+                        Assigns me homework
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Guides me to set goals" id="checkbox2Example6" />
+                    <label class="form-check-label" for="checkbox2Example6">
+                        Guides me to set goals
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="proactively checks in with me" id="checkbox2Example7" />
+                    <label class="form-check-label" for="checkbox2Example7">
+                        proactively checks in with me
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="other" id="checkbox2Example8" />
+                    <label class="form-check-label" for="checkbox2Example8">
+                        other
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="I don't know" id="checkbox2Example9" />
+                    <label class="form-check-label" for="checkbox2Example9">
+                        I don't know
+                    </label>
+                </div>
+                </div>
+
+
+            {% comment %} question 12  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Are you currently experiencing anxiety, panic attacks or have any phobias?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="anxiety_status" value="Yes"  id="radio9Example1" />
+                    <label class="form-check-label" for="radio9Example1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="anxiety_status" value="No" id="radio9Example2" />
+                    <label class="form-check-label" for="radio9Example2">
+                        No
+                    </label>
+                </div>
+            </div>
+
+            <hr>
+            <label class="mx-5">Some symptoms of panic attacks include a racing heart, dizziness, or chest pains</label>
+            <hr>
+
+
+            {% comment %} question 13  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Are you currently taking any medication?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="medication_status" value="Yes"  id="radio10Example1" />
+                    <label class="form-check-label" for="radio10Example1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="medication_status" value="No" id="radio10Example2" />
+                    <label class="form-check-label" for="radio10Example2">
+                        No
+                    </label>
+                </div>
+            </div>
+
+
+            {% comment %} question 14  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Are you currently experiencing any chronic pain?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="chronic_pain_status" value="Yes"  id="radio11Example1" />
+                    <label class="form-check-label" for="radio11Example1">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="chronic_pain_status" value="No" id="radio11Example2" />
+                    <label class="form-check-label" for="radio11Example2">
+                        No
+                    </label>
+                </div>
+            </div>
+
+
+            {% comment %} question 15  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. How would you rate your current financial status?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="finantial_status" value="Good"  id="radio12Example1" />
+                    <label class="form-check-label" for="radio12Example1">
+                        Good
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="finantial_status" value="Fair" id="radio12Example2" />
+                    <label class="form-check-label" for="radio12Example2">
+                        Fair
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="finantial_status" value="Poor" id="radio12Example3" />
+                    <label class="form-check-label" for="radio12Example3">
+                        Poor
+                    </label>
+                </div>
+            </div>
+
+
+            {% comment %} question 16  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Which of the following resources would be useful for you?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="resources" value="Support Groups"  id="checkbox3Example1" />
+                    <label class="form-check-label" for="checkbox3Example1">
+                        Support Groups
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="resources" value="Therapy Journal" id="checkbox3Example2" />
+                    <label class="form-check-label" for="checkbox3Example2">
+                        Therapy Journal
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="resources" value="Worksheets" id="checkbox3Example3" />
+                    <label class="form-check-label" for="checkbox3Example3">
+                        Worksheets
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="resources" value="Goal/Habit Tracking" id="checkbox3Example4" />
+                    <label class="form-check-label" for="checkbox3Example4">
+                        Goal/Habit Tracking
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="resources" value="Educational Webinars" id="checkbox3Example5" />
+                    <label class="form-check-label" for="checkbox3Example5">
+                        Educational Webinars
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="resources" value="Other" id="checkbox3Example6" />
+                    <label class="form-check-label" for="checkbox3Example6">
+                        Other
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="resources" value="I don't know" id="checkbox3Example7" />
+                    <label class="form-check-label" for="checkbox3Example7">
+                        I don't know
+                    </label>
+                </div>
+                </div>
+
+
+            {% comment %} question 17  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. How do you prefer to communicate with your Counsellor?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="communication_mode" value="Mostly via messaging"  id="radio13Example1" />
+                    <label class="form-check-label" for="radio13Example1">
+                        Mostly via messaging
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="communication_mode" value="Mostly via phone or video sessions" id="radio13Example2" />
+                    <label class="form-check-label" for="radio13Example2">
+                        Mostly via phone or video sessions
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="communication_mode" value="Not sure yet (decide later)" id="radio13Example3" />
+                    <label class="form-check-label" for="radio13Example3">
+                        Not sure yet (decide later)
+                    </label>
+                </div>
+            </div>
+
+
+            {% comment %} question 18  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Are there any specific preferences for your Counsellor?</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="preferences" value="Male Counsellor "  id="radio14Example1" />
+                    <label class="form-check-label" for="radio14Example1">
+                        Male Counsellor 
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input required class="form-check-input" type="radio" name="preferences" value="Female Counsellor" id="radio14Example2" />
+                    <label class="form-check-label" for="radio14Example2">
+                        Female Counsellor
+                    </label>
+                </div>
+            </div>
+
+
+            {% comment %} question 19  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Which country are you in?</strong></p>
+                
+                
+            </div>
+
+
+            {% comment %} question 20  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. What is your preferred language?</strong></p>
+                
+                
+            </div>
+
+
+            {% comment %} question 21  {% endcomment %}
+            <div class="question my-5">
+                <p class="text-left"><strong>Q. Please mark all that apply</strong></p>
+                
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm a student"  id="checkbox4Example1" />
+                    <label class="form-check-label" for="checkbox4Example1">
+                        I'm a student
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm a veteran" id="checkbox4Example2" />
+                    <label class="form-check-label" for="checkbox4Example2">
+                        I'm a veteran
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm disabled" id="checkbox4Example3" />
+                    <label class="form-check-label" for="checkbox4Example3">
+                        I'm disabled
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm unemployed" id="checkbox4Example4" />
+                    <label class="form-check-label" for="checkbox4Example4">
+                        I'm unemployed
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm employed but my income is low" id="checkbox4Example5" />
+                    <label class="form-check-label" for="checkbox4Example5">
+                        I'm employed but my income is low
+                    </label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm financially impacted by the Coronavirus outbreak" id="checkbox4Example6" />
+                    <label class="form-check-label" for="checkbox4Example6">
+                        I'm financially impacted by the Coronavirus outbreak
+                    </label>
+                </div>
+                </div>
+
+            <hr>
+            <label class="mx-5">You've completed the questionnaire!</label>
+            <hr>
+
+
+            
+
+            
+        </form>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+  {% endblock body %}

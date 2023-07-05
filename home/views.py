@@ -68,8 +68,6 @@ def logout(request):
 
 
 def appointment(request):
-
-    print("form apposintkjsdfls")
-    return HttpResponse(f"404 page not found!")
+    return render(request, 'home/appointment.html')
 
 

@@ -23,7 +23,7 @@
     <div class="container">
       <h1>Welcome to Aksar</h1>
       <h2>We are team of talented Counseller making websites with Bootstrap</h2>
-      <a href="#" class="btn-get-started scrollto">Get Started</a>
+      <a href="/appointment" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero -->
 
@@ -38,8 +38,7 @@
             <div class="content">
               <h3>Why Choose Aksar?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                We believe that counseling is a valuable resource for anyone facing temporary challenges or dealing with long-standing issues. At Aksar Kounselling, we understand the impact of difficult childhood experiences and the feeling of being let down by parents, peers, or loved ones.
               </p>
               <div class="text-center">
                 <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
@@ -48,21 +47,15 @@
           </div>
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
+              {% comment %} <div class="row">
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-receipt"></i>
                     <h4>Corporis voluptates sit</h4>
                     <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
                   </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
+                </div> {% endcomment %}
+                
                 
               </div>
             </div><!-- End .content-->
@@ -77,13 +70,13 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
+          {% comment %} <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
-          </div>
+          </div> {% endcomment %}
 
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+          <div class="icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
             <h3>About us</h3>
-            <p>Welcome to Aksar Kounselling, a counseling services website dedicated to providing support and guidance to individuals from all walks of life. We believe that counseling is a valuable resource for anyone facing temporary challenges or dealing with long-standing issues.
+            <p class="p-2">Welcome to Aksar Kounselling, a counseling services website dedicated to providing support and guidance to individuals from all walks of life. We believe that counseling is a valuable resource for anyone facing temporary challenges or dealing with long-standing issues.
 
               At Aksar Kounselling, we understand the impact of difficult childhood experiences and the feeling of being let down by parents, peers, or loved ones. We recognize the weight that perceived "failures" can carry and offer a safe space for you to navigate through these challenges.
               
@@ -110,7 +103,7 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Counts Section ======= -->
+    {% comment %} <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
       <div class="container">
 
@@ -120,11 +113,9 @@
             <div class="count-box">
               <i class="fas fa-user-md"></i>
               <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Doctors</p>
+              <p>Counsellers</p>
             </div>
           </div>
-
-         
 
           <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
@@ -145,7 +136,7 @@
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
+    </section><!-- End Counts Section --> {% endcomment %}
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -153,32 +144,68 @@
 
         <div class="section-title">
           <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>At Aksar Kounselling, we offer a range of counseling services tailored to meet the diverse needs of our clients.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-heartbeat"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href="">Healing from Childhood Trauma</a></h4>
+              <p>Our experienced counselors understand the impact of difficult childhood experiences and the challenges they can bring. We provide a safe and supportive space for individuals to navigate through their trauma and find healing. Our therapists specialize in trauma-focused therapy techniques to help clients process their past and develop coping strategies for a healthier future.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-pills"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <div class="icon"><i class="fas fa-transgender"></i></div>
+              <h4><a href="">LGBTQ+ Support and Acceptance</a></h4>
+              <p>At Aksar Kounselling, we embrace individuals who may have hidden their true sexual orientation due to societal pressures. Our LGBTQ+ support services offer a non-judgmental environment where individuals can explore their identity, overcome internalized shame, and find acceptance. Our counselors are trained in LGBTQ+-affirmative therapy and can provide guidance and support throughout the coming-out process.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="fas fa-hospital-user"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <h4><a href="">Substance Abuse and Mental Health Counseling</a></h4>
+              <p>We understand the interconnected challenges of substance abuse and mental health issues. Our comprehensive support aims to address both aspects of these struggles. Our counselors specialize in dual diagnosis treatment, helping individuals develop coping mechanisms, explore underlying issues, and establish a solid foundation for recovery. We provide personalized counseling sessions and create individualized treatment plans to support each client's unique journey.</p>
             </div>
+          </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+              <div class="icon-box">
+                <div class="icon"><i class="fas fa-family-dress"></i></div>
+                <h4><a href="">Family Counseling</a></h4>
+                <p>At Aksar Kounselling, we do offer family counseling services. Through family counseling, we provide a safe and supportive space for each family member to express their thoughts and feelings. Our therapists facilitate open and honest communication, helping family members gain a deeper understanding of each other's perspectives and find constructive ways to address conflicts or challenges.</p>
+              </div>
+          </div>
+
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                <div class="icon-box">
+                  <div class="icon"><i class="fas fa-user"></i></div>
+                  <h4><a href="">Individual Counseling</a></h4>
+                  <p>We provide individual counseling services for those facing various personal challenges such as anxiety, depression, sadness, loneliness, hopelessness, self-esteem issues, lack of confidence, and other mental health concerns. Our counselors work collaboratively with individuals to explore their emotions, develop coping strategies, and promote personal growth and well-being.
+                  </p>
+                </div>
+          </div>
+
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                  <div class="icon-box">
+                    <div class="icon"><i class="fas fa-people"></i></div>
+                    <h4><a href="">Couples Counseling</a></h4>
+                    <p>Our couples counseling services are designed to support couples in navigating relationship difficulties and improving their communication and connection. We address common issues such as conflict resolution, trust-building, emotional intimacy, and strengthening overall relationship satisfaction. Our therapists provide a neutral and supportive space for couples to work through challenges and rediscover their bond.</p>
+                  </div>
+          </div>
+
+
+                  <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                    <div class="icon-box">
+                      <div class="icon"><i class="fas fa-career"></i></div>
+                      <h4><a href="">Career Counseling</a></h4>
+                      <p>Our career counseling services aim to help individuals explore career options, identify their strengths and interests, and make informed decisions about their professional paths. Our career counselors provide guidance in areas such as career planning, job search strategies, resume building, interview preparation, and navigating career transitions.</p>
+                    </div>
           </div>
 
          
@@ -190,12 +217,12 @@
       </div>
     </section><!-- End Services Section -->
 
-    <!-- ======= Appointment Section ======= -->
+    {% comment %} <!-- ======= Appointment Section ======= -->
     <section id="appointment" class="appointment section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Make an Appointment</h2>
+          <h2>Make a Short Appointment</h2>
           
         </div>
 
@@ -249,13 +276,13 @@
             <div class="error-message"></div>
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          <div class="text-center"><button type="submit">Make Appointment</button></div>
         </form>
       </div>
-    </section><!-- End Appointment Section -->
+    </section><!-- End Appointment Section --> {% endcomment %}
 
     <!-- ======= Departments Section ======= -->
-    <section id="departments" class="departments">
+    {% comment %} <section id="departments" class="departments">
       <div class="container">
 
         <div class="section-title">
@@ -322,22 +349,15 @@
         </div>
 
       </div>
-    </section><!-- End Departments Section -->
+    </section><!-- End Departments Section --> {% endcomment %}
 
-    <!-- ======= Doctors Section ======= -->
+    {% comment %} <!-- ======= Doctors Section ======= -->
     <section id="counsellers" class="doctors">
       <div class="container">
-
         <div class="section-title">
           <h2>Counsellers</h2>
-          
         </div>
-
         <div class="row">
-
-          
-
-          
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="{% static '/assets/img/doctors/doctors-3.jpg' %}" class="img-fluid" alt=""></div>
@@ -375,9 +395,9 @@
         </div>
 
       </div>
-    </section><!-- End Doctors Section -->
+    </section><!-- End Doctors Section --> {% endcomment %}
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
+    {% comment %} <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq section-bg">
       <div class="container">
 
@@ -413,9 +433,9 @@
         </div>
 
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </section><!-- End Frequently Asked Questions Section --> {% endcomment %}
 
-    <!-- ======= Testimonials Section ======= -->
+    {% comment %} <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
       <div class="container">
 
@@ -451,60 +471,14 @@
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static '/assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Jena Karlis</h3>
-                  <h4>Store Owner</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static '/assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                  <h3>Matt Brandon</h3>
-                  <h4>Freelancer</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-wrap">
-                <div class="testimonial-item">
-                  <img src="{% static '/assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                  <h3>John Larson</h3>
-                  <h4>Entrepreneur</h4>
-                  <p>
-                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                  </p>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
           </div>
           <div class="swiper-pagination"></div>
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section><!-- End Testimonials Section --> {% endcomment %}
 
-    <!-- ======= Gallery Section ======= -->
+    {% comment %} <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
       <div class="container">
 
@@ -554,7 +528,7 @@
         </div>
 
       </div>
-    </section><!-- End Gallery Section -->
+    </section><!-- End Gallery Section --> {% endcomment %}
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

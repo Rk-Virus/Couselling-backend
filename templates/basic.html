@@ -60,7 +60,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Aksar</a></h1>
+      <h1 class="logo me-auto"><a href="/">Aksar</a></h1>
       
       {% comment %} <!-- Uncomment below if you prefer to use an image logo --> {% endcomment %}
       
@@ -72,7 +72,7 @@
           <li><a class="nav-link scrollto" href="/#about">About</a></li>
           <li><a class="nav-link scrollto" href="/#services">Services</a></li>
           {% comment %} <li><a class="nav-link scrollto" href="/#departments">Departments</a></li> {% endcomment %}
-          <li><a class="nav-link scrollto" href="/#counsellers">Counsellers</a></li>
+          {% comment %} <li><a class="nav-link scrollto" href="/#counsellers">Counsellers</a></li> {% endcomment %}
           
           <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
           <li><a class="nav-link scrollto" href="/signup">Sign Up</a></li>
@@ -83,7 +83,7 @@
 
       
 
-      <a href="/#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+      <a href="/appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
 
     </div>
   </header>
@@ -118,10 +118,10 @@
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="/#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="/#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.termsandconditionsgenerator.com/live.php?token=KkSOIEWyRt5PlD6Gf8yYIAgCBSl6pV2X">Terms of service</a></li>
+              {% comment %} <li><i class="bx bx-chevron-right"></i> <a href="/#">Privacy policy</a></li> {% endcomment %}
             </ul>
           </div>
 
@@ -132,13 +132,13 @@
               <li>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
+          {% comment %} <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
             
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-          </div>
+          </div> {% endcomment %}
 
         </div>
       </div>
