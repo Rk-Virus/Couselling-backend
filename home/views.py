@@ -68,6 +68,36 @@ def logout(request):
 
 
 def appointment(request):
+    if request.method == 'POST':
+        # print(request)
+        # print(request.POST.get('finantial_status',''))
+
+        # fetching form data 
+        type_of_therapy = request.POST.get('type_of_therapy','')
+        sex = request.POST.get('sex','')
+        age = request.POST.get('age','')
+        gender = request.POST.get('gender','')
+        relationship_status = request.POST.get('relationship_status','')
+        religious_status = request.POST.get('religious_status','')
+        religion = request.POST.get('religion','')
+        spritual_status = request.POST.get('spritual_status','')
+        therapy_status = request.POST.get('therapy_status','')
+        reason_for_therapy = request.POST.getlist('reason_for_therapy','')
+        expectation_from_counseller = request.POST.getlist('expectation_from_counseller','')
+        anxiety_status = request.POST.get('anxiety_status','')
+        medication_status = request.POST.get('medication_status','')
+        chronic_pain_status = request.POST.get('chronic_pain_status','')
+        finantial_status = request.POST.get('finantial_status','')
+        resources = request.POST.getlist('resources','')
+        communication_mode = request.POST.get('communication_mode','')
+        preferences = request.POST.get('preferences','')
+        country = request.POST.get('country','')
+        language = request.POST.get('language','')
+        occupation_status = request.POST.getlist('occupation_status','')
+
+        print(language)
+
+        return HttpResponse("form submitted")
     return render(request, 'home/appointment.html')
 
 

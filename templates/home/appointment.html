@@ -28,11 +28,12 @@
     <section class="inner-page">
         <div class="container">
         <form action="/appointment" method='POST'>
+            {% csrf_token %}
             <h3>Answer the questions to book an appointment :    </h3>
         
             {% comment %} question 1  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. What type of therapy are you looking for?</strong></p>
+                <p class="text-left"><strong>Q. What type of therapy are you looking for?**</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="type_of_therapy" value="Individual" id="radio1Example1" />
@@ -60,7 +61,7 @@
 
             {% comment %} question 2  {% endcomment %}
              <div class="question my-5">
-                <p class="text-left"><strong>Q. What is your gender identity?</strong></p>
+                <p class="text-left"><strong>Q. What is your gender identity?**</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="sex" value="male"  id="radio2Example1" />
@@ -84,7 +85,7 @@
 
                 {% comment %} question 3  {% endcomment %}
              <div class="question my-5">
-                <p class="text-left"><strong>Q. How old are you?</strong></p>
+                <p class="text-left"><strong>Q. How old are you?**</strong></p>
                 
                 <div class="form-check mb-2">
                     <label class="form-check-label" for="ageNumber">
@@ -97,7 +98,7 @@
 
              {% comment %} question 4  {% endcomment %}
              <div class="question my-5">
-                <p class="text-left"><strong>Q. How do you identity?</strong></p>
+                <p class="text-left"><strong>Q. How do you identity?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="gender" value="Straight"  id="radio3Example1" />
@@ -139,7 +140,7 @@
 
             {% comment %} question 5  {% endcomment %}
              <div class="question my-5">
-                <p class="text-left"><strong>Q. What is your relationship status?</strong></p>
+                <p class="text-left"><strong>Q. What is your relationship status?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="relationship_status" value="Single"  id="radio4Example1" />
@@ -182,7 +183,7 @@
                 
             {% comment %} question 6  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Do you consider yourself to be religious?</strong></p>
+                <p class="text-left"><strong>Q. Do you consider yourself to be religious?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="religious_status" value="Yes"  id="radio5Example1" />
@@ -232,7 +233,7 @@
 
             {% comment %} question 8  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Do you consider yourself to be spiritual?</strong></p>
+                <p class="text-left"><strong>Q. Do you consider yourself to be spiritual?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="spritual_status" value="Yes"  id="radio7Example1" />
@@ -251,7 +252,7 @@
 
             {% comment %} question 9  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Have you ever been in therapy before?</strong></p>
+                <p class="text-left"><strong>Q. Have you ever been in therapy before?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="therapy_status" value="Yes"  id="radio8Example1" />
@@ -270,7 +271,7 @@
 
             {% comment %} question 10  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. What led you to consider therapy today?</strong></p>
+                <p class="text-left"><strong>Q. What led you to consider therapy today?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I've been feeling depressed"  id="checkbox1Example1" />
@@ -355,7 +356,7 @@
 
             {% comment %} question 11  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. What are your expectations from your therapist? A Counsellor who...</strong></p>
+                <p class="text-left"><strong>Q. What are your expectations from your therapist? A Counsellor who...*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Listens"  id="checkbox2Example1" />
@@ -416,7 +417,7 @@
 
             {% comment %} question 12  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Are you currently experiencing anxiety, panic attacks or have any phobias?</strong></p>
+                <p class="text-left"><strong>Q. Are you currently experiencing anxiety, panic attacks or have any phobias?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="anxiety_status" value="Yes"  id="radio9Example1" />
@@ -439,7 +440,7 @@
 
             {% comment %} question 13  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Are you currently taking any medication?</strong></p>
+                <p class="text-left"><strong>Q. Are you currently taking any medication?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="medication_status" value="Yes"  id="radio10Example1" />
@@ -458,7 +459,7 @@
 
             {% comment %} question 14  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Are you currently experiencing any chronic pain?</strong></p>
+                <p class="text-left"><strong>Q. Are you currently experiencing any chronic pain?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="chronic_pain_status" value="Yes"  id="radio11Example1" />
@@ -477,7 +478,7 @@
 
             {% comment %} question 15  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. How would you rate your current financial status?</strong></p>
+                <p class="text-left"><strong>Q. How would you rate your current financial status?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="finantial_status" value="Good"  id="radio12Example1" />
@@ -502,7 +503,7 @@
 
             {% comment %} question 16  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Which of the following resources would be useful for you?</strong></p>
+                <p class="text-left"><strong>Q. Which of the following resources would be useful for you?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" name="resources" value="Support Groups"  id="checkbox3Example1" />
@@ -551,7 +552,7 @@
 
             {% comment %} question 17  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. How do you prefer to communicate with your Counsellor?</strong></p>
+                <p class="text-left"><strong>Q. How do you prefer to communicate with your Counsellor?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="communication_mode" value="Mostly via messaging"  id="radio13Example1" />
@@ -576,7 +577,7 @@
 
             {% comment %} question 18  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Are there any specific preferences for your Counsellor?</strong></p>
+                <p class="text-left"><strong>Q. Are there any specific preferences for your Counsellor?*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input required class="form-check-input" type="radio" name="preferences" value="Male Counsellor "  id="radio14Example1" />
@@ -595,23 +596,35 @@
 
             {% comment %} question 19  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Which country are you in?</strong></p>
-                
+                <p class="text-left"><strong>Q. Which country are you in?*</strong></p>
+
+                <select class="form-select" aria-label="Default select example" name="country">
+                    <option value="India" selected>India</option>
+                    <option value="America">America</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Other">Other</option>
+                  </select>
                 
             </div>
 
 
             {% comment %} question 20  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. What is your preferred language?</strong></p>
+                <p class="text-left"><strong>Q. What is your preferred language?*</strong></p>
                 
-                
+                <select class="form-select" aria-label="Default select example" name="language">
+                    <option selected value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Other">Other</option>
+
+                  </select>
             </div>
 
 
             {% comment %} question 21  {% endcomment %}
             <div class="question my-5">
-                <p class="text-left"><strong>Q. Please mark all that apply</strong></p>
+                <p class="text-left"><strong>Q. Please mark all that apply*</strong></p>
                 
                 <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm a student"  id="checkbox4Example1" />
@@ -655,10 +668,8 @@
             <label class="mx-5">You've completed the questionnaire!</label>
             <hr>
 
+            <button type="submit" class="btn btn-outline-dark m-4">Submit and Create an Account</button>
 
-            
-
-            
         </form>
       </div>
     </section>
