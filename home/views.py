@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse, redirect
-from .models import Contact
+from .models import Contact, Appointment
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
@@ -78,15 +78,15 @@ def appointment(request):
         age = request.POST.get('age','')
         gender = request.POST.get('gender','')
         relationship_status = request.POST.get('relationship_status','')
-        religious_status = request.POST.get('religious_status','')
+        religious_status = request.POST.get('religious_status','').lower() in ['true', 'yes']
         religion = request.POST.get('religion','')
-        spritual_status = request.POST.get('spritual_status','')
-        therapy_status = request.POST.get('therapy_status','')
+        spritual_status = request.POST.get('spritual_status','').lower() in ['true', 'yes']
+        therapy_status = request.POST.get('therapy_status','').lower() in ['true', 'yes']
         reason_for_therapy = request.POST.getlist('reason_for_therapy','')
         expectation_from_counseller = request.POST.getlist('expectation_from_counseller','')
-        anxiety_status = request.POST.get('anxiety_status','')
-        medication_status = request.POST.get('medication_status','')
-        chronic_pain_status = request.POST.get('chronic_pain_status','')
+        anxiety_status = request.POST.get('anxiety_status','').lower() in ['true', 'yes']
+        medication_status = request.POST.get('medication_status','').lower() in ['true', 'yes']
+        chronic_pain_status = request.POST.get('chronic_pain_status','').lower() in ['true', 'yes']
         finantial_status = request.POST.get('finantial_status','')
         resources = request.POST.getlist('resources','')
         communication_mode = request.POST.get('communication_mode','')
@@ -94,10 +94,15 @@ def appointment(request):
         country = request.POST.get('country','')
         language = request.POST.get('language','')
         occupation_status = request.POST.getlist('occupation_status','')
+        # print(chronic_pain_status)
+        appointment = Appointment(type_of_therapy=type_of_therapy, sex=sex, age=age, gender=gender, relationship_status=relationship_status,is_religious=religious_status,religious_status=religion,is_spritual=spritual_status,taken_therapy=therapy_status,therapy_reason=reason_for_therapy,expectations=expectation_from_counseller, is_anxious=anxiety_status,taking_medications=medication_status, having_chronic_pain=chronic_pain_status, financial_status=finantial_status, resources=resources, communication_mode=communication_mode, preferences=preferences, country=country, language=language, mark_that_apply=occupation_status)
 
-        print(language)
+        #saving appointment
+        appointment.save()
 
-        return HttpResponse("form submitted")
+        #redirecting
+        return redirect("/signup")
+    
     return render(request, 'home/appointment.html')
 
 

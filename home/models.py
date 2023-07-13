@@ -9,7 +9,7 @@ def get_default_array():
 class User(models.Model):
     id = models.AutoField
     name = models.CharField(max_length=50, default="")
-    email = models.CharField(max_length=50, default="")
+    email = models.EmailField(max_length=254, default="")
     password = models.CharField(max_length=50, default="")
     dob = models.DateField()
     profile_img = models.ImageField(upload_to="home/images")
@@ -59,9 +59,4 @@ class Appointment(models.Model):
     country = models.CharField(max_length=50, default='')
     language = models.CharField(max_length=50, default='')
     mark_that_apply = ArrayField(base_field=models.TextField(), default=get_default_array)
-
-
-
-
-    
 
