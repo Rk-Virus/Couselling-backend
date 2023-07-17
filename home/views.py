@@ -1,10 +1,8 @@
 from django.shortcuts import render,HttpResponse, redirect
-from .models import Contact, Appointment
+from .models import Contact, Appointment, Appointment2
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
-
-from django_nextjs.render import render_nextjs_page_sync
 
 
 # Create your views here.
@@ -13,7 +11,6 @@ def index(request):
     messages.info(request, "Welcome to Aksar ;)")
     params = {'siteName':'Aksar','phoneNo':'+911234567890'}
     return render(request, 'home/index.html',params)
-    # return render_nextjs_page_sync(request)
 
 def contact(request):
     # return render(request, 'home/contact.html')
@@ -39,7 +36,7 @@ def signup(request):
         # creating the user 
         user = User.objects.create_user(name,email,passwd)
         user.save()
-        messages.success(request, "Your Aksar account has been created successfully!")
+        # messages.success(request, "Your Aksar account has been created successfully!")
         return redirect('/login')
     return render(request, 'home/signUp.html')
 
@@ -54,7 +51,7 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             messages.success(request, f"Welcome back {name}")
-            return redirect('/')
+            return redirect('/appointment2')
         else:
             messages.error(request, "Username or password incorrect!")
             return redirect('/login')
@@ -106,3 +103,15 @@ def appointment(request):
     return render(request, 'home/appointment.html')
 
 
+
+def appointment2(request):
+    if request.method == 'POST':
+        counseller_experience = request.POST.getlist('counseller_experience','')
+        Additional_focus_areas = request.POST.getlist('Additional_focus_areas','')
+        additional_details = request.POST.get('additional_details','')
+
+        print(counseller_experience, additional_details, Additional_focus_areas)
+        appointment2 = Appointment2(counseller_experience=counseller_experience,Additional_focus_areas=Additional_focus_areas, additional_details=additional_details)
+        appointment2.save()
+        return render(request, 'home/submit.html')
+    return render(request, 'home/appointment2.html')

@@ -60,3 +60,11 @@ class Appointment(models.Model):
     language = models.CharField(max_length=50, default='')
     mark_that_apply = ArrayField(base_field=models.TextField(), default=get_default_array)
 
+
+class Appointment2(models.Model):
+    counseller_experience = ArrayField(base_field=models.TextField(), default=get_default_array)
+    Additional_focus_areas = ArrayField(base_field=models.TextField(), default=get_default_array)
+    additional_details = models.TextField(default="")
+
+
+

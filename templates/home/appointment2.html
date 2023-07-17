@@ -1,0 +1,336 @@
+{% extends 'basic.html' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Appointment</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Appointment</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page">
+        <div class="container">
+        <form action="/appointment2" method='POST'>
+            {% csrf_token %}
+
+                {% comment %} question 22  {% endcomment %}
+                <div class="question my-5">
+                    <p class="text-left"><strong>Q. I prefer a Counsellor with experience in... *</strong></p>
+                    
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Depression"  id="checkbox5Example1" />
+                        <label class="form-check-label" for="checkbox5Example1">
+                            Depression
+                      </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Stress and Anxiety" id="checkbox5Example2" />
+                        <label class="form-check-label" for="checkbox5Example2">
+                            Stress and Anxiety
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Coping with addictions" id="checkbox5Example3" />
+                        <label class="form-check-label" for="checkbox5Example3">
+                            Coping with addictions
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="LGBTQ + related issues" id="checkbox5Example4" />
+                        <label class="form-check-label" for="checkbox5Example4">
+                            LGBTQ + related issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Relationship issues" id="checkbox5Example5" />
+                        <label class="form-check-label" for="checkbox5Example5">
+                            Relationship issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Family conflicts " id="checkbox5Example7" />
+                        <label class="form-check-label" for="checkbox5Example7">
+                            Family conflicts 
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Trauma and abuse" id="checkbox5Example8" />
+                        <label class="form-check-label" for="checkbox5Example8">
+                            Trauma and abuse
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Coping with grief and loss" id="checkbox5Example9" />
+                        <label class="form-check-label" for="checkbox5Example9">
+                            Coping with grief and loss
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Intimacy related issues" id="checkbox5Example10" />
+                        <label class="form-check-label" for="checkbox5Example10">
+                            Intimacy related issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Eating disorders" id="checkbox5Example11" />
+                        <label class="form-check-label" for="checkbox5Example11">
+                            Eating disorders
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Parenting issues" id="checkbox5Example12" />
+                        <label class="form-check-label" for="checkbox5Example12">
+                            Parenting issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Motivation, self-esteem, and confidence" id="checkbox5Example13" />
+                        <label class="form-check-label" for="checkbox5Example13">
+                            Motivation, self-esteem, and confidence
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Anger management" id="checkbox5Example14" />
+                        <label class="form-check-label" for="checkbox5Example14">
+                            Anger management
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Career difficulties" id="checkbox5Example15" />
+                        <label class="form-check-label" for="checkbox5Example15">
+                            Career difficulties
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Bipolar disorder" id="checkbox5Example16" />
+                        <label class="form-check-label" for="checkbox5Example16">
+                            Bipolar disorder
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Coping with life changes" id="checkbox5Example17" />
+                        <label class="form-check-label" for="checkbox5Example17">
+                            Coping with life changes
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Executive and professional coaching" id="checkbox5Example18" />
+                        <label class="form-check-label" for="checkbox5Example18">
+                            Executive and professional coaching
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Compassion fatigue" id="checkbox5Example19" />
+                        <label class="form-check-label" for="checkbox5Example19">
+                            Compassion fatigue
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="counseller_experience" value="Concentration, Memory and focus (ADHD)" id="checkbox5Example20" />
+                        <label class="form-check-label" for="checkbox5Example20">
+                            Concentration, Memory and focus (ADHD)
+                        </label>
+                    </div>
+
+                    {% comment %} question 23  {% endcomment %}
+                    <div class="question my-5">
+                    <p class="text-left"><strong>Q. Are there any additional areas you are interested in? We may not be able to honor all the preferences, but we will do our best!*</strong></p>
+                    
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Communication Problems"  id="checkbox6Example1" />
+                        <label class="form-check-label" for="checkbox6Example1">
+                            Communication Problems
+                      </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Life Purpose" id="checkbox6Example2" />
+                        <label class="form-check-label" for="checkbox6Example2">
+                            Life Purpose
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Isolation/ Loneliness" id="checkbox6Example3" />
+                        <label class="form-check-label" for="checkbox6Example3">
+                            Isolation/ Loneliness
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Self-Love" id="checkbox6Example4" />
+                        <label class="form-check-label" for="checkbox6Example4">
+                            Self-Love
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Social Anxiety and Phobia" id="checkbox6Example5" />
+                        <label class="form-check-label" for="checkbox6Example5">
+                            Social Anxiety and Phobia
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Guilt and Shame" id="checkbox6Example7" />
+                        <label class="form-check-label" for="checkbox6Example7">
+                            Guilt and Shame
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Post - traumatic stress" id="checkbox6Example8" />
+                        <label class="form-check-label" for="checkbox6Example8">
+                            Post - traumatic stress
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Panic Disorder and Panic Attacks" id="checkbox6Example9" />
+                        <label class="form-check-label" for="checkbox6Example9">
+                            Panic Disorder and Panic Attacks
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Control Issues" id="checkbox6Example10" />
+                        <label class="form-check-label" for="checkbox6Example10">
+                            Control Issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Forgiveness" id="checkbox6Example11" />
+                        <label class="form-check-label" for="checkbox6Example11">
+                            Forgiveness
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Caregiver Issues and stress" id="checkbox6Example12" />
+                        <label class="form-check-label" for="checkbox6Example12">
+                            Caregiver Issues and stress
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Pregnancy and Childbirth" id="checkbox6Example13" />
+                        <label class="form-check-label" for="checkbox6Example13">
+                            Pregnancy and Childbirth
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Divorce and Separation" id="checkbox6Example14" />
+                        <label class="form-check-label" for="checkbox6Example14">
+                            Divorce and Separation
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Attachment issues" id="checkbox6Example15" />
+                        <label class="form-check-label" for="checkbox6Example15">
+                            Attachment issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Abandonment" id="checkbox6Example16" />
+                        <label class="form-check-label" for="checkbox6Example16">
+                            Abandonment
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Body Image" id="checkbox6Example17" />
+                        <label class="form-check-label" for="checkbox6Example17">
+                            Body Image
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Mood Disorders" id="checkbox6Example18" />
+                        <label class="form-check-label" for="checkbox6Example18">
+                            Mood Disorders
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Impulsivity" id="checkbox6Example19" />
+                        <label class="form-check-label" for="checkbox6Example19">
+                            Impulsivity
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Workplace Issues" id="checkbox6Example20" />
+                        <label class="form-check-label" for="checkbox6Example20">
+                            Workplace Issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Money and Financial Issues" id="checkbox6Example21" />
+                        <label class="form-check-label" for="checkbox6Example21">
+                            Money and Financial Issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Chronic Pain Illness and Disability" id="checkbox6Example22" />
+                        <label class="form-check-label" for="checkbox6Example22">
+                            Chronic Pain Illness and Disability
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Women's Issues" id="checkbox6Example23" />
+                        <label class="form-check-label" for="checkbox6Example23">
+                            Women's Issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Men's Issues" id="checkbox6Example24" />
+                        <label class="form-check-label" for="checkbox6Example24">
+                            Men's Issues
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Sexuality" id="checkbox6Example25" />
+                        <label class="form-check-label" for="checkbox6Example25">
+                            Sexuality
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Midlife Crisis" id="checkbox6Example26" />
+                        <label class="form-check-label" for="checkbox6Example26">
+                            Midlife Crisis
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" name="Additional_focus_areas" value="Narcissism" id="checkbox6Example27" />
+                        <label class="form-check-label" for="checkbox6Example27">
+                            Narcissism
+                        </label>
+                    </div>
+
+                    <!-- question 24 -->
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. What brings you here?*</strong></p>
+                        <p>Join the 12,027 people that started therapy with their tailored Counsellor match this week. Let your therapist know what you'd like to work on below. The more information you provide, the better you therapist will understand where to begin.</p>
+                        
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="additional_details"></textarea>
+                    </div>
+                </div>
+            <hr>
+            <label class="mx-5">You've completed the questionnaire!</label>
+            <hr>
+
+            <button type="submit" class="btn btn-outline-dark m-4">Submit the Appointment Form</button>
+
+        </form>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+</body>
+
+</html>
+  {% endblock body %}

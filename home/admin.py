@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User,Contact, ShortAppointment, Appointment
+from .models import User,Contact, ShortAppointment, Appointment, Appointment2
 
 #Altering admin panels
 class UserModalAdmin(admin.ModelAdmin):
@@ -17,3 +17,4 @@ admin.site.register(User, UserModalAdmin)
 admin.site.register(Contact, ContactModalAdmin)
 admin.site.register(ShortAppointment)
 admin.site.register(Appointment)
+admin.site.register(Appointment2)
