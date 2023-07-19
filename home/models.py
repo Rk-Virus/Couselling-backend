@@ -11,6 +11,7 @@ def get_default_array():
 class Profile(models.Model):
     name = models.CharField(max_length=50, default="")
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=254, default="")
     auth_token = models.CharField(max_length=150)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

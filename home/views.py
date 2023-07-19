@@ -48,31 +48,39 @@ def signup(request):
 
         # creating profile 
         token = str(uuid.uuid4())
-        profile = Profile.objects.create(name=name, user=user, auth_token=token)
+        profile = Profile.objects.create(name=name, email=email, user=user, auth_token=token)
         profile.save()
 
         send_verification_mail(email, token)
-        return redirect('/verify')
+
+        return redirect(f'/verify/{email}')
     return render(request, 'home/signUp.html')
 
-def verify(request):
-    return render(request, 'home/verify.html')
-
-def verified(request):
-    return render(request, 'home/verified.html')
+def verify(request,email):
+    return render(request, 'home/verify.html',{'email':email})
 
 def login(request):
     if request.method == 'POST':
         name = request.POST.get('uname','')
         passwd = request.POST.get('password','')
 
-        # authenticating 
-        user = authenticate(username=name, password=passwd)
+        # quering for user 
+        user = User.objects.filter(username=name).first()
 
         if user is not None:
-            auth_login(request, user)
-            messages.success(request, f"Welcome back {name}")
-            return redirect('/appointment2')
+            profile = Profile.objects.filter(user=user).first()
+            if profile.is_verified:
+                # authenticating 
+                authuser = authenticate(username=name, password=passwd)
+                if authuser is not None:
+                    auth_login(request, user)
+                    return redirect('/appointment2')
+                else:
+                    messages.error(request, "Username or password incorrect!")
+                    return redirect('/login')
+            else:
+                messages.warning(request, "Email is not verified, please check your mail or spam to verify!")
+                return redirect('/login')
         else:
             messages.error(request, "Username or password incorrect!")
             return redirect('/login')
@@ -140,8 +148,28 @@ def appointment2(request):
 
 def send_verification_mail(email, token):
     subject = "Aksar | Verify your email address"
-    message = f'Verify your email through the given link to complete your aksar account registration : http://localhost:8000/verify/{token}'
+    message = f'Verify your email through the given link to complete your aksar account registration : http://localhost:8000/verifyemail/{token}'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)
 
+
+
+def verifyemail(request,token):
+    try:
+        verifiedProfile = Profile.objects.filter(auth_token=token).first()
+        # print(verifiedProfile)
+        if verifiedProfile:
+            if verifiedProfile.is_verified:
+                messages.success(request,"Email is already verified!")
+                return redirect('/login')
+
+            verifiedProfile.is_verified = True
+            verifiedProfile.save()
+            messages.success(request, "Your account has been verified!")
+            return redirect('/login')
+        else:
+            messages.success(request, "Sorry, email verification failed...")
+            redirect('/signup')
+    except Exception as e:
+        print(e)

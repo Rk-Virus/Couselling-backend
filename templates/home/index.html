@@ -2,11 +2,6 @@
 {% load static %}
 {% block body %}
 
-{% comment %} {% if messages %}
-{% for message in messages %}
-<h4>Message : {{message}}</h4>
-{% endfor %}
-{% endif %} {% endcomment %}
 
 {% comment %} {% if user.is_authenticated %}
     <p>You are logged in as {{request.user}}</p>

@@ -9,6 +9,6 @@ urlpatterns = [
     path("logout", views.logout, name='logout'),
     path("appointment", views.appointment, name='appointment'),
     path("appointment2", views.appointment2, name='appointment2'),
-    path("verify", views.verify, name='verify'),
-    path("verified", views.verified, name='verified'),
+    path("verify/<email>", views.verify, name='verify'),
+    path("verifyemail/<token>", views.verifyemail, name='verifyemail'),
 ]
