@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 from django.contrib.messages import constants as messages
 from pathlib import Path
-import django_heroku
-import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,8 +30,17 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
+# Verify Email configurations 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_ID') 
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PW')
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
 
+
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,7 +52,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'home.apps.HomeConfig',
     'blog.apps.BlogConfig',
-    "django_nextjs",
+    "verify_email.apps.VerifyEmailConfig",
 ]
 
 MIDDLEWARE = [
@@ -136,7 +143,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #     # "/var/www/static/",
 # ]
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-django_heroku.settings(locals())
 
 # message tags 
 MESSAGE_TAGS = {

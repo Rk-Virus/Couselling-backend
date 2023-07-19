@@ -1,9 +1,11 @@
 from django.shortcuts import render,HttpResponse, redirect
-from .models import Contact, Appointment, Appointment2
-from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.models import User
-
+from django.core.mail import send_mail
+from django.contrib import messages
+from django.conf import settings
+from .models import *
+import uuid
 
 # Create your views here.
 def index(request):
@@ -33,12 +35,31 @@ def signup(request):
         email = request.POST.get('email','')
         passwd = request.POST.get('password','')
 
+        # checking if user already exists
+        if User.objects.filter(username=name).first():
+            messages.warning(request, "User name already exists!")
+            return redirect("signup")
+        if User.objects.filter(email=email).first():
+            messages.warning(request, "Email already exists!")
+            return redirect("signup")
+
         # creating the user 
-        user = User.objects.create_user(name,email,passwd)
-        user.save()
-        # messages.success(request, "Your Aksar account has been created successfully!")
-        return redirect('/login')
+        user = User.objects.create_user(name,email, passwd)
+
+        # creating profile 
+        token = str(uuid.uuid4())
+        profile = Profile.objects.create(name=name, user=user, auth_token=token)
+        profile.save()
+
+        send_verification_mail(email, token)
+        return redirect('/verify')
     return render(request, 'home/signUp.html')
+
+def verify(request):
+    return render(request, 'home/verify.html')
+
+def verified(request):
+    return render(request, 'home/verified.html')
 
 def login(request):
     if request.method == 'POST':
@@ -115,3 +136,12 @@ def appointment2(request):
         appointment2.save()
         return render(request, 'home/submit.html')
     return render(request, 'home/appointment2.html')
+
+
+def send_verification_mail(email, token):
+    subject = "Aksar | Verify your email address"
+    message = f'Verify your email through the given link to complete your aksar account registration : http://localhost:8000/verify/{token}'
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [email]
+    send_mail(subject, message, email_from, recipient_list)
+

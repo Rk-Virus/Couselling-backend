@@ -1,18 +1,19 @@
 from django.contrib.postgres.fields import ArrayField
+from django.contrib.auth.models import User
 from django.db import models
 
-#Other custom functions
+# Other custom functions
+# function to set default array 
 def get_default_array():
     return []
 
 # Create your models here.
-class User(models.Model):
-    id = models.AutoField
+class Profile(models.Model):
     name = models.CharField(max_length=50, default="")
-    email = models.EmailField(max_length=254, default="")
-    password = models.CharField(max_length=50, default="")
-    dob = models.DateField()
-    profile_img = models.ImageField(upload_to="home/images")
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    auth_token = models.CharField(max_length=150)
+    is_verified = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
