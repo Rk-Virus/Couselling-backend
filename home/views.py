@@ -148,8 +148,6 @@ def send_verification_mail(email, token):
     recipient_list = [email]
     send_mail(subject, message, email_from, recipient_list)
 
-
-
 def verifyemail(request,token):
     try:
         verifiedProfile = Profile.objects.filter(auth_token=token).first()
@@ -168,3 +166,49 @@ def verifyemail(request,token):
             redirect('/signup')
     except Exception as e:
         print(e)
+
+
+# forgot password views 
+def forgotPassword(request):
+    if request.method == 'POST':
+        email = request.POST.get('email','')
+        token = str(uuid.uuid4())
+        profile = Profile.objects.filter(email=email).first()
+        profile.pass_token = token
+        profile.save()
+        send_passwordChange_mail(email, token)
+        return render(request,'home/verify.html', {'email':email})
+    return render(request, 'home/forgotPassword.html')
+
+def send_passwordChange_mail(email, token):
+    subject = "Aksar | Change Password"
+    message = f'Click the given link to change your password : http://localhost:8000/changePassword/{token}'
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [email]
+    send_mail(subject, message, email_from, recipient_list)
+
+def changePassword(request, token):
+    if request.method == 'GET':
+        profile = Profile.objects.filter(pass_token=token).first()
+        if profile is not None:
+            user = User.objects.filter(email=profile.email).first()
+            return render(request, 'home/changePassword.html', {'token':token})
+        else:
+            messages.error(request,"Something went wrong in password recovery")
+            return HttpResponse("Something went wrong")
+
+
+    if request.method == 'POST':
+        try:
+            profile = Profile.objects.filter(pass_token=token).first()
+            user = User.objects.filter(email=profile.email).first()
+            newPass = request.POST.get('password','')
+            user.set_password(newPass)
+            user.save()
+            messages.success(request,"Password changed successfully!")
+            
+            return redirect('login')
+        except Exception as e:
+            print(e)
+            
+    return HttpResponse("Something went wrong")

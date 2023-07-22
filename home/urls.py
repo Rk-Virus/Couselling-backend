@@ -11,4 +11,8 @@ urlpatterns = [
     path("appointment2", views.appointment2, name='appointment2'),
     path("verify/<email>", views.verify, name='verify'),
     path("verifyemail/<token>", views.verifyemail, name='verifyemail'),
+    path("forgot-password", views.forgotPassword, name='forgot-password'),
+    path("changePassword/<token>", views.changePassword, name='changePassword'),
+
+
 ]
