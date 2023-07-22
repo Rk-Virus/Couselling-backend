@@ -9,13 +9,9 @@ import uuid
 
 # Create your views here.
 def index(request):
-    # return HttpResponse("this is home page")
-    messages.info(request, "Welcome to Aksar ;)")
-    params = {'siteName':'Aksar','phoneNo':'+911234567890'}
-    return render(request, 'home/index.html',params)
+    return render(request, 'home/index.html')
 
 def contact(request):
-    # return render(request, 'home/contact.html')
     print("/contact running")
     if request.method == 'POST':
         name = request.POST.get('name','')
@@ -25,7 +21,6 @@ def contact(request):
         print(name,email, subject, message)
         contact = Contact(name=name,email=email, subject=subject, message=message)
         contact.save()
-        # return redirect('/')
         return HttpResponse("Message Sent!")
 
 
