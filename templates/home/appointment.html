@@ -4,1082 +4,1510 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  
+
 
 <body>
 
-  <main id="main">
+    <main id="main">
 
-    <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Appointment</h2>
-          <ol>
-            <li><a href="/">Home</a></li>
-            <li>Appointment</li>
-          </ol>
-        </div>
-
-      </div>
-    </section><!-- End Breadcrumbs Section -->
-
-    <section class="inner-page">
-        <div class="container">
-        <form action="/appointment" method='POST'>
-            {% csrf_token %}
-            <h3>Answer the questions to book an appointment :    </h3>
-        
-            {% comment %} question 1  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. What type of therapy are you looking for?**</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="type_of_therapy" value="Individual" id="radio1Example1" />
-                    <label class="form-check-label" for="radio1Example1">
-                        Individual (for myself)
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" value="Couples" name="type_of_therapy" id="radio1Example2" />
-                    <label class="form-check-label" for="radio1Example2">
-                        Couples (for myself and my partner)
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="type_of_therapy" value="Teen" id="radio1Example3" />
-                    <label class="form-check-label" for="radio1Example3">
-                        Teen (for my child)
-                    </label>
-                </div>
-            </div>
-                
-            <hr>
-            <label class="mx-5">Let's walk through the process of finding the best Counsellor for you! We'll start with some basic questions</label>
-            <hr>
-
-            {% comment %} question 2  {% endcomment %}
-             <div class="question my-5">
-                <p class="text-left"><strong>Q. What is your gender identity?**</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="sex" value="male"  id="radio2Example1" />
-                    <label class="form-check-label" for="radio2Example1">
-                        Male
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="sex" value="female" id="radio2Example2" />
-                    <label class="form-check-label" for="radio2Example2">
-                        Female
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="sex" value="others" id="radio2Example3" />
-                    <label class="form-check-label" for="radio2Example3">
-                        Others
-                    </label>
-                </div>
-                </div>
-
-                {% comment %} question 3  {% endcomment %}
-             <div class="question my-5">
-                <p class="text-left"><strong>Q. How old are you?**</strong></p>
-                
-                <div class="form-check mb-2">
-                    <label class="form-check-label" for="ageNumber">
-                        Select age : 
-                  </label>
-                    <input required  type="number" name="age"  id="ageNumber" min="0" max="100" />
-                </div>
-                </div>
-
-
-             {% comment %} question 4  {% endcomment %}
-             <div class="question my-5">
-                <p class="text-left"><strong>Q. How do you identity?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="gender" value="Straight"  id="radio3Example1" />
-                    <label class="form-check-label" for="radio3Example1">
-                        Straight
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="gender" value="Gay" id="radio3Example2" />
-                    <label class="form-check-label" for="radio3Example2">
-                        Gay
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="gender" value="Lesbian" id="radio3Example3" />
-                    <label class="form-check-label" for="radio3Example3">
-                        Lesbian
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="gender" value="Bi or Pan" id="radio3Example4" />
-                    <label class="form-check-label" for="radio3Example4">
-                        Bi or Pan
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="gender" value="Prefer not to say" id="radio3Example5" />
-                    <label class="form-check-label" for="radio3Example5">
-                        Prefer not to say
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="gender" value="Others" id="radio3Example6" />
-                    <label class="form-check-label" for="radio3Example6">
-                        Others
-                    </label>
-                </div>
-                </div>
-
-            {% comment %} question 5  {% endcomment %}
-             <div class="question my-5">
-                <p class="text-left"><strong>Q. What is your relationship status?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="relationship_status" value="Single"  id="radio4Example1" />
-                    <label class="form-check-label" for="radio4Example1">
-                        Single
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="relationship_status" value="In a relationship" id="radio4Example2" />
-                    <label class="form-check-label" for="radio4Example2">
-                        In a relationship
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="relationship_status" value="Married" id="radio4Example3" />
-                    <label class="form-check-label" for="radio4Example3">
-                        Married
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="relationship_status" value="Divorced" id="radio4Example4" />
-                    <label class="form-check-label" for="radio4Example4">
-                        Divorced
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="relationship_status" value="Widowed" id="radio4Example5" />
-                    <label class="form-check-label" for="radio4Example5">
-                        Widowed
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="relationship_status" value="Others" id="radio4Example6" />
-                    <label class="form-check-label" for="radio4Example6">
-                        Others
-                    </label>
-                </div>
-                </div>
-
-                
-            {% comment %} question 6  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Do you consider yourself to be religious?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="religious_status" value="Yes"  id="radio5Example1" />
-                    <label class="form-check-label" for="radio5Example1">
-                        Yes
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="religious_status" value="No" id="radio5Example2" />
-                    <label class="form-check-label" for="radio5Example2">
-                        No
-                    </label>
-                </div>
-                </div>
-
-
-                {% comment %} question 7  {% endcomment %}
-             <div class="question my-5">
-                <p class="text-left"><strong>Q. Which religion do you identify with? (Optional)</strong></p>
-
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="religion" value="Hinduism"  id="radio6Example1" />
-                    <label class="form-check-label" for="radio6Example1">
-                        Hinduism
-                  </label>
-                </div>
-
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="religion" value="Sikhism"  id="radio6Example1" />
-                    <label class="form-check-label" for="radio6Example1">
-                        Sikhism
-                  </label>
-                </div>
-                
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="religion" value="Islam" id="radio6Example3" />
-                    <label class="form-check-label" for="radio6Example3">
-                        Islam
-                    </label>
-                </div>
-                
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="religion" value="Christianity"  id="radio6Example1" />
-                    <label class="form-check-label" for="radio6Example1">
-                        Christianity
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="religion" value="Judaism" id="radio6Example2" />
-                    <label class="form-check-label" for="radio6Example2">
-                        Judaism
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="radio" name="religion" value="Others" id="radio6Example4" />
-                    <label class="form-check-label" for="radio6Example4">
-                        Others
-                    </label>
-                </div>
-                </div>
-
-
-            {% comment %} question 8  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Do you consider yourself to be spiritual?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="spritual_status" value="Yes"  id="radio7Example1" />
-                    <label class="form-check-label" for="radio7Example1">
-                        Yes
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="spritual_status" value="No" id="radio7Example2" />
-                    <label class="form-check-label" for="radio7Example2">
-                        No
-                    </label>
-                </div>
-                </div>
-
-
-            {% comment %} question 9  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Have you ever been in therapy before?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="therapy_status" value="Yes"  id="radio8Example1" />
-                    <label class="form-check-label" for="radio8Example1">
-                        Yes
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="therapy_status" value="No" id="radio8Example2" />
-                    <label class="form-check-label" for="radio8Example2">
-                        No
-                    </label>
-                </div>
-            </div>
-
-
-            {% comment %} question 10  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. What led you to consider therapy today?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I've been feeling depressed"  id="checkbox1Example1" />
-                    <label class="form-check-label" for="checkbox1Example1">
-                        I've been feeling depressed
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I feel anxious or overwhelmed" id="checkbox1Example2" />
-                    <label class="form-check-label" for="checkbox1Example2">
-                        I feel anxious or overwhelmed
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="My mood is interfering with my job/school performance" id="checkbox1Example3" />
-                    <label class="form-check-label" for="checkbox1Example3">
-                        My mood is interfering with my job/school performance
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I struggle with building or maintaining relationships" id="checkbox1Example4" />
-                    <label class="form-check-label" for="checkbox1Example4">
-                        I struggle with building or maintaining relationships
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I can't find purpose and meaning in my life" id="checkbox1Example5" />
-                    <label class="form-check-label" for="checkbox1Example5">
-                        I can't find purpose and meaning in my life
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I am grieving" id="checkbox1Example6" />
-                    <label class="form-check-label" for="checkbox1Example6">
-                        I am grieving
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I have experienced trauma" id="checkbox1Example7" />
-                    <label class="form-check-label" for="checkbox1Example7">
-                        I have experienced trauma
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I need to talk through a specific challenge" id="checkbox1Example8" />
-                    <label class="form-check-label" for="checkbox1Example8">
-                        I need to talk through a specific challenge
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I want to gain self confidence" id="checkbox1Example9" />
-                    <label class="form-check-label" for="checkbox1Example9">
-                        I want to gain self confidence
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="I want to improve myself but I don't know where to start" id="checkbox1Example10" />
-                    <label class="form-check-label" for="checkbox1Example10">
-                        I want to improve myself but I don't know where to start
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="Recommended to me (friend, family, doctor)" id="checkbox1Example11" />
-                    <label class="form-check-label" for="checkbox1Example11">
-                        Recommended to me (friend, family, doctor)
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="Just exploring" id="checkbox1Example12" />
-                    <label class="form-check-label" for="checkbox1Example12">
-                        Just exploring
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="Other" id="checkbox1Example13" />
-                    <label class="form-check-label" for="checkbox1Example13">
-                        Other
-                    </label>
-                </div>
-                </div>
-
-
-            {% comment %} question 11  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. What are your expectations from your therapist? A Counsellor who...*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Listens"  id="checkbox2Example1" />
-                    <label class="form-check-label" for="checkbox2Example1">
-                        Listens
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Explores my past" id="checkbox2Example2" />
-                    <label class="form-check-label" for="checkbox2Example2">
-                        Explores my past
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Teaches me new skills" id="checkbox2Example3" />
-                    <label class="form-check-label" for="checkbox2Example3">
-                        Teaches me new skills
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="challenges my beliefs" id="checkbox2Example4" />
-                    <label class="form-check-label" for="checkbox2Example4">
-                        challenges my beliefs
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Assigns me homework" id="checkbox2Example5" />
-                    <label class="form-check-label" for="checkbox2Example5">
-                        Assigns me homework
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="Guides me to set goals" id="checkbox2Example6" />
-                    <label class="form-check-label" for="checkbox2Example6">
-                        Guides me to set goals
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="proactively checks in with me" id="checkbox2Example7" />
-                    <label class="form-check-label" for="checkbox2Example7">
-                        proactively checks in with me
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="other" id="checkbox2Example8" />
-                    <label class="form-check-label" for="checkbox2Example8">
-                        other
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="expectation_from_counseller" value="I don't know" id="checkbox2Example9" />
-                    <label class="form-check-label" for="checkbox2Example9">
-                        I don't know
-                    </label>
-                </div>
-                </div>
-
-
-            {% comment %} question 12  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Are you currently experiencing anxiety, panic attacks or have any phobias?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="anxiety_status" value="Yes"  id="radio9Example1" />
-                    <label class="form-check-label" for="radio9Example1">
-                        Yes
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="anxiety_status" value="No" id="radio9Example2" />
-                    <label class="form-check-label" for="radio9Example2">
-                        No
-                    </label>
-                </div>
-            </div>
-
-            <hr>
-            <label class="mx-5">Some symptoms of panic attacks include a racing heart, dizziness, or chest pains</label>
-            <hr>
-
-
-            {% comment %} question 13  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Are you currently taking any medication?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="medication_status" value="Yes"  id="radio10Example1" />
-                    <label class="form-check-label" for="radio10Example1">
-                        Yes
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="medication_status" value="No" id="radio10Example2" />
-                    <label class="form-check-label" for="radio10Example2">
-                        No
-                    </label>
-                </div>
-            </div>
-
-
-            {% comment %} question 14  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Are you currently experiencing any chronic pain?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="chronic_pain_status" value="Yes"  id="radio11Example1" />
-                    <label class="form-check-label" for="radio11Example1">
-                        Yes
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="chronic_pain_status" value="No" id="radio11Example2" />
-                    <label class="form-check-label" for="radio11Example2">
-                        No
-                    </label>
-                </div>
-            </div>
-
-
-            {% comment %} question 15  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. How would you rate your current financial status?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="finantial_status" value="Good"  id="radio12Example1" />
-                    <label class="form-check-label" for="radio12Example1">
-                        Good
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="finantial_status" value="Fair" id="radio12Example2" />
-                    <label class="form-check-label" for="radio12Example2">
-                        Fair
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="finantial_status" value="Poor" id="radio12Example3" />
-                    <label class="form-check-label" for="radio12Example3">
-                        Poor
-                    </label>
-                </div>
-            </div>
-
-
-            {% comment %} question 16  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Which of the following resources would be useful for you?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="resources" value="Support Groups"  id="checkbox3Example1" />
-                    <label class="form-check-label" for="checkbox3Example1">
-                        Support Groups
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="resources" value="Therapy Journal" id="checkbox3Example2" />
-                    <label class="form-check-label" for="checkbox3Example2">
-                        Therapy Journal
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="resources" value="Worksheets" id="checkbox3Example3" />
-                    <label class="form-check-label" for="checkbox3Example3">
-                        Worksheets
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="resources" value="Goal/Habit Tracking" id="checkbox3Example4" />
-                    <label class="form-check-label" for="checkbox3Example4">
-                        Goal/Habit Tracking
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="resources" value="Educational Webinars" id="checkbox3Example5" />
-                    <label class="form-check-label" for="checkbox3Example5">
-                        Educational Webinars
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="resources" value="Other" id="checkbox3Example6" />
-                    <label class="form-check-label" for="checkbox3Example6">
-                        Other
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="resources" value="I don't know" id="checkbox3Example7" />
-                    <label class="form-check-label" for="checkbox3Example7">
-                        I don't know
-                    </label>
-                </div>
-                </div>
-
-
-            {% comment %} question 17  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. How do you prefer to communicate with your Counsellor?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="communication_mode" value="Mostly via messaging"  id="radio13Example1" />
-                    <label class="form-check-label" for="radio13Example1">
-                        Mostly via messaging
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="communication_mode" value="Mostly via phone or video sessions" id="radio13Example2" />
-                    <label class="form-check-label" for="radio13Example2">
-                        Mostly via phone or video sessions
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="communication_mode" value="Not sure yet (decide later)" id="radio13Example3" />
-                    <label class="form-check-label" for="radio13Example3">
-                        Not sure yet (decide later)
-                    </label>
-                </div>
-            </div>
-
-
-            {% comment %} question 18  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Are there any specific preferences for your Counsellor?*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="preferences" value="Male Counsellor "  id="radio14Example1" />
-                    <label class="form-check-label" for="radio14Example1">
-                        Male Counsellor 
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input required class="form-check-input" type="radio" name="preferences" value="Female Counsellor" id="radio14Example2" />
-                    <label class="form-check-label" for="radio14Example2">
-                        Female Counsellor
-                    </label>
-                </div>
-            </div>
-
-
-            {% comment %} question 19  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Which country are you in?*</strong></p>
-
-                {% comment %} <select class="form-select" aria-label="Default select example" name="country">
-                    
-                  </select> {% endcomment %}
-                  <select class="form-select" id="country" name="country">
-                    <option>select country</option>
-                    <option value="AF">Afghanistan</option>
-                    <option value="AX">Aland Islands</option>
-                    <option value="AL">Albania</option>
-                    <option value="DZ">Algeria</option>
-                    <option value="AS">American Samoa</option>
-                    <option value="AD">Andorra</option>
-                    <option value="AO">Angola</option>
-                    <option value="AI">Anguilla</option>
-                    <option value="AQ">Antarctica</option>
-                    <option value="AG">Antigua and Barbuda</option>
-                    <option value="AR">Argentina</option>
-                    <option value="AM">Armenia</option>
-                    <option value="AW">Aruba</option>
-                    <option value="AU">Australia</option>
-                    <option value="AT">Austria</option>
-                    <option value="AZ">Azerbaijan</option>
-                    <option value="BS">Bahamas</option>
-                    <option value="BH">Bahrain</option>
-                    <option value="BD">Bangladesh</option>
-                    <option value="BB">Barbados</option>
-                    <option value="BY">Belarus</option>
-                    <option value="BE">Belgium</option>
-                    <option value="BZ">Belize</option>
-                    <option value="BJ">Benin</option>
-                    <option value="BM">Bermuda</option>
-                    <option value="BT">Bhutan</option>
-                    <option value="BO">Bolivia</option>
-                    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-                    <option value="BA">Bosnia and Herzegovina</option>
-                    <option value="BW">Botswana</option>
-                    <option value="BV">Bouvet Island</option>
-                    <option value="BR">Brazil</option>
-                    <option value="IO">British Indian Ocean Territory</option>
-                    <option value="BN">Brunei Darussalam</option>
-                    <option value="BG">Bulgaria</option>
-                    <option value="BF">Burkina Faso</option>
-                    <option value="BI">Burundi</option>
-                    <option value="KH">Cambodia</option>
-                    <option value="CM">Cameroon</option>
-                    <option value="CA">Canada</option>
-                    <option value="CV">Cape Verde</option>
-                    <option value="KY">Cayman Islands</option>
-                    <option value="CF">Central African Republic</option>
-                    <option value="TD">Chad</option>
-                    <option value="CL">Chile</option>
-                    <option value="CN">China</option>
-                    <option value="CX">Christmas Island</option>
-                    <option value="CC">Cocos (Keeling) Islands</option>
-                    <option value="CO">Colombia</option>
-                    <option value="KM">Comoros</option>
-                    <option value="CG">Congo</option>
-                    <option value="CD">Congo, Democratic Republic of the Congo</option>
-                    <option value="CK">Cook Islands</option>
-                    <option value="CR">Costa Rica</option>
-                    <option value="CI">Cote D'Ivoire</option>
-                    <option value="HR">Croatia</option>
-                    <option value="CU">Cuba</option>
-                    <option value="CW">Curacao</option>
-                    <option value="CY">Cyprus</option>
-                    <option value="CZ">Czech Republic</option>
-                    <option value="DK">Denmark</option>
-                    <option value="DJ">Djibouti</option>
-                    <option value="DM">Dominica</option>
-                    <option value="DO">Dominican Republic</option>
-                    <option value="EC">Ecuador</option>
-                    <option value="EG">Egypt</option>
-                    <option value="SV">El Salvador</option>
-                    <option value="GQ">Equatorial Guinea</option>
-                    <option value="ER">Eritrea</option>
-                    <option value="EE">Estonia</option>
-                    <option value="ET">Ethiopia</option>
-                    <option value="FK">Falkland Islands (Malvinas)</option>
-                    <option value="FO">Faroe Islands</option>
-                    <option value="FJ">Fiji</option>
-                    <option value="FI">Finland</option>
-                    <option value="FR">France</option>
-                    <option value="GF">French Guiana</option>
-                    <option value="PF">French Polynesia</option>
-                    <option value="TF">French Southern Territories</option>
-                    <option value="GA">Gabon</option>
-                    <option value="GM">Gambia</option>
-                    <option value="GE">Georgia</option>
-                    <option value="DE">Germany</option>
-                    <option value="GH">Ghana</option>
-                    <option value="GI">Gibraltar</option>
-                    <option value="GR">Greece</option>
-                    <option value="GL">Greenland</option>
-                    <option value="GD">Grenada</option>
-                    <option value="GP">Guadeloupe</option>
-                    <option value="GU">Guam</option>
-                    <option value="GT">Guatemala</option>
-                    <option value="GG">Guernsey</option>
-                    <option value="GN">Guinea</option>
-                    <option value="GW">Guinea-Bissau</option>
-                    <option value="GY">Guyana</option>
-                    <option value="HT">Haiti</option>
-                    <option value="HM">Heard Island and Mcdonald Islands</option>
-                    <option value="VA">Holy See (Vatican City State)</option>
-                    <option value="HN">Honduras</option>
-                    <option value="HK">Hong Kong</option>
-                    <option value="HU">Hungary</option>
-                    <option value="IS">Iceland</option>
-                    <option value="IN">India</option>
-                    <option value="ID">Indonesia</option>
-                    <option value="IR">Iran, Islamic Republic of</option>
-                    <option value="IQ">Iraq</option>
-                    <option value="IE">Ireland</option>
-                    <option value="IM">Isle of Man</option>
-                    <option value="IL">Israel</option>
-                    <option value="IT">Italy</option>
-                    <option value="JM">Jamaica</option>
-                    <option value="JP">Japan</option>
-                    <option value="JE">Jersey</option>
-                    <option value="JO">Jordan</option>
-                    <option value="KZ">Kazakhstan</option>
-                    <option value="KE">Kenya</option>
-                    <option value="KI">Kiribati</option>
-                    <option value="KP">Korea, Democratic People's Republic of</option>
-                    <option value="KR">Korea, Republic of</option>
-                    <option value="XK">Kosovo</option>
-                    <option value="KW">Kuwait</option>
-                    <option value="KG">Kyrgyzstan</option>
-                    <option value="LA">Lao People's Democratic Republic</option>
-                    <option value="LV">Latvia</option>
-                    <option value="LB">Lebanon</option>
-                    <option value="LS">Lesotho</option>
-                    <option value="LR">Liberia</option>
-                    <option value="LY">Libyan Arab Jamahiriya</option>
-                    <option value="LI">Liechtenstein</option>
-                    <option value="LT">Lithuania</option>
-                    <option value="LU">Luxembourg</option>
-                    <option value="MO">Macao</option>
-                    <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
-                    <option value="MG">Madagascar</option>
-                    <option value="MW">Malawi</option>
-                    <option value="MY">Malaysia</option>
-                    <option value="MV">Maldives</option>
-                    <option value="ML">Mali</option>
-                    <option value="MT">Malta</option>
-                    <option value="MH">Marshall Islands</option>
-                    <option value="MQ">Martinique</option>
-                    <option value="MR">Mauritania</option>
-                    <option value="MU">Mauritius</option>
-                    <option value="YT">Mayotte</option>
-                    <option value="MX">Mexico</option>
-                    <option value="FM">Micronesia, Federated States of</option>
-                    <option value="MD">Moldova, Republic of</option>
-                    <option value="MC">Monaco</option>
-                    <option value="MN">Mongolia</option>
-                    <option value="ME">Montenegro</option>
-                    <option value="MS">Montserrat</option>
-                    <option value="MA">Morocco</option>
-                    <option value="MZ">Mozambique</option>
-                    <option value="MM">Myanmar</option>
-                    <option value="NA">Namibia</option>
-                    <option value="NR">Nauru</option>
-                    <option value="NP">Nepal</option>
-                    <option value="NL">Netherlands</option>
-                    <option value="AN">Netherlands Antilles</option>
-                    <option value="NC">New Caledonia</option>
-                    <option value="NZ">New Zealand</option>
-                    <option value="NI">Nicaragua</option>
-                    <option value="NE">Niger</option>
-                    <option value="NG">Nigeria</option>
-                    <option value="NU">Niue</option>
-                    <option value="NF">Norfolk Island</option>
-                    <option value="MP">Northern Mariana Islands</option>
-                    <option value="NO">Norway</option>
-                    <option value="OM">Oman</option>
-                    <option value="PK">Pakistan</option>
-                    <option value="PW">Palau</option>
-                    <option value="PS">Palestinian Territory, Occupied</option>
-                    <option value="PA">Panama</option>
-                    <option value="PG">Papua New Guinea</option>
-                    <option value="PY">Paraguay</option>
-                    <option value="PE">Peru</option>
-                    <option value="PH">Philippines</option>
-                    <option value="PN">Pitcairn</option>
-                    <option value="PL">Poland</option>
-                    <option value="PT">Portugal</option>
-                    <option value="PR">Puerto Rico</option>
-                    <option value="QA">Qatar</option>
-                    <option value="RE">Reunion</option>
-                    <option value="RO">Romania</option>
-                    <option value="RU">Russian Federation</option>
-                    <option value="RW">Rwanda</option>
-                    <option value="BL">Saint Barthelemy</option>
-                    <option value="SH">Saint Helena</option>
-                    <option value="KN">Saint Kitts and Nevis</option>
-                    <option value="LC">Saint Lucia</option>
-                    <option value="MF">Saint Martin</option>
-                    <option value="PM">Saint Pierre and Miquelon</option>
-                    <option value="VC">Saint Vincent and the Grenadines</option>
-                    <option value="WS">Samoa</option>
-                    <option value="SM">San Marino</option>
-                    <option value="ST">Sao Tome and Principe</option>
-                    <option value="SA">Saudi Arabia</option>
-                    <option value="SN">Senegal</option>
-                    <option value="RS">Serbia</option>
-                    <option value="CS">Serbia and Montenegro</option>
-                    <option value="SC">Seychelles</option>
-                    <option value="SL">Sierra Leone</option>
-                    <option value="SG">Singapore</option>
-                    <option value="SX">Sint Maarten</option>
-                    <option value="SK">Slovakia</option>
-                    <option value="SI">Slovenia</option>
-                    <option value="SB">Solomon Islands</option>
-                    <option value="SO">Somalia</option>
-                    <option value="ZA">South Africa</option>
-                    <option value="GS">South Georgia and the South Sandwich Islands</option>
-                    <option value="SS">South Sudan</option>
-                    <option value="ES">Spain</option>
-                    <option value="LK">Sri Lanka</option>
-                    <option value="SD">Sudan</option>
-                    <option value="SR">Suriname</option>
-                    <option value="SJ">Svalbard and Jan Mayen</option>
-                    <option value="SZ">Swaziland</option>
-                    <option value="SE">Sweden</option>
-                    <option value="CH">Switzerland</option>
-                    <option value="SY">Syrian Arab Republic</option>
-                    <option value="TW">Taiwan, Province of China</option>
-                    <option value="TJ">Tajikistan</option>
-                    <option value="TZ">Tanzania, United Republic of</option>
-                    <option value="TH">Thailand</option>
-                    <option value="TL">Timor-Leste</option>
-                    <option value="TG">Togo</option>
-                    <option value="TK">Tokelau</option>
-                    <option value="TO">Tonga</option>
-                    <option value="TT">Trinidad and Tobago</option>
-                    <option value="TN">Tunisia</option>
-                    <option value="TR">Turkey</option>
-                    <option value="TM">Turkmenistan</option>
-                    <option value="TC">Turks and Caicos Islands</option>
-                    <option value="TV">Tuvalu</option>
-                    <option value="UG">Uganda</option>
-                    <option value="UA">Ukraine</option>
-                    <option value="AE">United Arab Emirates</option>
-                    <option value="GB">United Kingdom</option>
-                    <option value="US">United States</option>
-                    <option value="UM">United States Minor Outlying Islands</option>
-                    <option value="UY">Uruguay</option>
-                    <option value="UZ">Uzbekistan</option>
-                    <option value="VU">Vanuatu</option>
-                    <option value="VE">Venezuela</option>
-                    <option value="VN">Viet Nam</option>
-                    <option value="VG">Virgin Islands, British</option>
-                    <option value="VI">Virgin Islands, U.s.</option>
-                    <option value="WF">Wallis and Futuna</option>
-                    <option value="EH">Western Sahara</option>
-                    <option value="YE">Yemen</option>
-                    <option value="ZM">Zambia</option>
-                    <option value="ZW">Zimbabwe</option>
-                </select>
-                
-            </div>
-
-
-            {% comment %} question 20  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. What is your preferred language?*</strong></p>
-                
-                <select class="form-select" id="languages" name="languages">
-                    <option>language</option>
-                    <option value="af">Afrikaans</option>
-                    <option value="sq">Albanian - shqip</option>
-                    <option value="am">Amharic - አማርኛ</option>
-                    <option value="ar">Arabic - العربية</option>
-                    <option value="an">Aragonese - aragonés</option>
-                    <option value="hy">Armenian - հայերեն</option>
-                    <option value="ast">Asturian - asturianu</option>
-                    <option value="az">Azerbaijani - azərbaycan dili</option>
-                    <option value="eu">Basque - euskara</option>
-                    <option value="be">Belarusian - беларуская</option>
-                    <option value="bn">Bengali - বাংলা</option>
-                    <option value="bs">Bosnian - bosanski</option>
-                    <option value="br">Breton - brezhoneg</option>
-                    <option value="bg">Bulgarian - български</option>
-                    <option value="ca">Catalan - català</option>
-                    <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
-                    <option value="zh">Chinese - 中文</option>
-                    <option value="zh-HK">Chinese (Hong Kong) - 中文（香港）</option>
-                    <option value="zh-CN">Chinese (Simplified) - 中文（简体）</option>
-                    <option value="zh-TW">Chinese (Traditional) - 中文（繁體）</option>
-                    <option value="co">Corsican</option>
-                    <option value="hr">Croatian - hrvatski</option>
-                    <option value="cs">Czech - čeština</option>
-                    <option value="da">Danish - dansk</option>
-                    <option value="nl">Dutch - Nederlands</option>
-                    <option value="en">English</option>
-                    <option value="en-AU">English (Australia)</option>
-                    <option value="en-CA">English (Canada)</option>
-                    <option value="en-IN">English (India)</option>
-                    <option value="en-NZ">English (New Zealand)</option>
-                    <option value="en-ZA">English (South Africa)</option>
-                    <option value="en-GB">English (United Kingdom)</option>
-                    <option value="en-US">English (United States)</option>
-                    <option value="eo">Esperanto - esperanto</option>
-                    <option value="et">Estonian - eesti</option>
-                    <option value="fo">Faroese - føroyskt</option>
-                    <option value="fil">Filipino</option>
-                    <option value="fi">Finnish - suomi</option>
-                    <option value="fr">French - français</option>
-                    <option value="fr-CA">French (Canada) - français (Canada)</option>
-                    <option value="fr-FR">French (France) - français (France)</option>
-                    <option value="fr-CH">French (Switzerland) - français (Suisse)</option>
-                    <option value="gl">Galician - galego</option>
-                    <option value="ka">Georgian - ქართული</option>
-                    <option value="de">German - Deutsch</option>
-                    <option value="de-AT">German (Austria) - Deutsch (Österreich)</option>
-                    <option value="de-DE">German (Germany) - Deutsch (Deutschland)</option>
-                    <option value="de-LI">German (Liechtenstein) - Deutsch (Liechtenstein)</option>
-                    <option value="de-CH">German (Switzerland) - Deutsch (Schweiz)</option>
-                    <option value="el">Greek - Ελληνικά</option>
-                    <option value="gn">Guarani</option>
-                    <option value="gu">Gujarati - ગુજરાતી</option>
-                    <option value="ha">Hausa</option>
-                    <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
-                    <option value="he">Hebrew - עברית</option>
-                    <option value="hi">Hindi - हिन्दी</option>
-                    <option value="hu">Hungarian - magyar</option>
-                    <option value="is">Icelandic - íslenska</option>
-                    <option value="id">Indonesian - Indonesia</option>
-                    <option value="ia">Interlingua</option>
-                    <option value="ga">Irish - Gaeilge</option>
-                    <option value="it">Italian - italiano</option>
-                    <option value="it-IT">Italian (Italy) - italiano (Italia)</option>
-                    <option value="it-CH">Italian (Switzerland) - italiano (Svizzera)</option>
-                    <option value="ja">Japanese - 日本語</option>
-                    <option value="kn">Kannada - ಕನ್ನಡ</option>
-                    <option value="kk">Kazakh - қазақ тілі</option>
-                    <option value="km">Khmer - ខ្មែរ</option>
-                    <option value="ko">Korean - 한국어</option>
-                    <option value="ku">Kurdish - Kurdî</option>
-                    <option value="ky">Kyrgyz - кыргызча</option>
-                    <option value="lo">Lao - ລາວ</option>
-                    <option value="la">Latin</option>
-                    <option value="lv">Latvian - latviešu</option>
-                    <option value="ln">Lingala - lingála</option>
-                    <option value="lt">Lithuanian - lietuvių</option>
-                    <option value="mk">Macedonian - македонски</option>
-                    <option value="ms">Malay - Bahasa Melayu</option>
-                    <option value="ml">Malayalam - മലയാളം</option>
-                    <option value="mt">Maltese - Malti</option>
-                    <option value="mr">Marathi - मराठी</option>
-                    <option value="mn">Mongolian - монгол</option>
-                    <option value="ne">Nepali - नेपाली</option>
-                    <option value="no">Norwegian - norsk</option>
-                    <option value="nb">Norwegian Bokmål - norsk bokmål</option>
-                    <option value="nn">Norwegian Nynorsk - nynorsk</option>
-                    <option value="oc">Occitan</option>
-                    <option value="or">Oriya - ଓଡ଼ିଆ</option>
-                    <option value="om">Oromo - Oromoo</option>
-                    <option value="ps">Pashto - پښتو</option>
-                    <option value="fa">Persian - فارسی</option>
-                    <option value="pl">Polish - polski</option>
-                    <option value="pt">Portuguese - português</option>
-                    <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
-                    <option value="pt-PT">Portuguese (Portugal) - português (Portugal)</option>
-                    <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
-                    <option value="qu">Quechua</option>
-                    <option value="ro">Romanian - română</option>
-                    <option value="mo">Romanian (Moldova) - română (Moldova)</option>
-                    <option value="rm">Romansh - rumantsch</option>
-                    <option value="ru">Russian - русский</option>
-                    <option value="gd">Scottish Gaelic</option>
-                    <option value="sr">Serbian - српски</option>
-                    <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
-                    <option value="sn">Shona - chiShona</option>
-                    <option value="sd">Sindhi</option>
-                    <option value="si">Sinhala - සිංහල</option>
-                    <option value="sk">Slovak - slovenčina</option>
-                    <option value="sl">Slovenian - slovenščina</option>
-                    <option value="so">Somali - Soomaali</option>
-                    <option value="st">Southern Sotho</option>
-                    <option value="es">Spanish - español</option>
-                    <option value="es-AR">Spanish (Argentina) - español (Argentina)</option>
-                    <option value="es-419">Spanish (Latin America) - español (Latinoamérica)</option>
-                    <option value="es-MX">Spanish (Mexico) - español (México)</option>
-                    <option value="es-ES">Spanish (Spain) - español (España)</option>
-                    <option value="es-US">Spanish (United States) - español (Estados Unidos)</option>
-                    <option value="su">Sundanese</option>
-                    <option value="sw">Swahili - Kiswahili</option>
-                    <option value="sv">Swedish - svenska</option>
-                    <option value="tg">Tajik - тоҷикӣ</option>
-                    <option value="ta">Tamil - தமிழ்</option>
-                    <option value="tt">Tatar</option>
-                    <option value="te">Telugu - తెలుగు</option>
-                    <option value="th">Thai - ไทย</option>
-                    <option value="ti">Tigrinya - ትግርኛ</option>
-                    <option value="to">Tongan - lea fakatonga</option>
-                    <option value="tr">Turkish - Türkçe</option>
-                    <option value="tk">Turkmen</option>
-                    <option value="tw">Twi</option>
-                    <option value="uk">Ukrainian - українська</option>
-                    <option value="ur">Urdu - اردو</option>
-                    <option value="ug">Uyghur</option>
-                    <option value="uz">Uzbek - o‘zbek</option>
-                    <option value="vi">Vietnamese - Tiếng Việt</option>
-                    <option value="wa">Walloon - wa</option>
-                    <option value="cy">Welsh - Cymraeg</option>
-                    <option value="fy">Western Frisian</option>
-                    <option value="xh">Xhosa</option>
-                    <option value="yi">Yiddish</option>
-                    <option value="yo">Yoruba - Èdè Yorùbá</option>
-                    <option value="zu">Zulu - isiZulu</option>
-                </select>
-            </div>
-
-
-            {% comment %} question 21  {% endcomment %}
-            <div class="question my-5">
-                <p class="text-left"><strong>Q. Please mark all that apply*</strong></p>
-                
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm a student"  id="checkbox4Example1" />
-                    <label class="form-check-label" for="checkbox4Example1">
-                        I'm a student
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm a veteran" id="checkbox4Example2" />
-                    <label class="form-check-label" for="checkbox4Example2">
-                        I'm a veteran
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm disabled" id="checkbox4Example3" />
-                    <label class="form-check-label" for="checkbox4Example3">
-                        I'm disabled
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm unemployed" id="checkbox4Example4" />
-                    <label class="form-check-label" for="checkbox4Example4">
-                        I'm unemployed
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm employed but my income is low" id="checkbox4Example5" />
-                    <label class="form-check-label" for="checkbox4Example5">
-                        I'm employed but my income is low
-                    </label>
-                </div>
-                <div class="form-check mb-2">
-                    <input class="form-check-input" type="checkbox" name="occupation_status" value="I'm financially impacted by the Coronavirus outbreak" id="checkbox4Example6" />
-                    <label class="form-check-label" for="checkbox4Example6">
-                        I'm financially impacted by the Coronavirus outbreak
-                    </label>
-                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Appointment</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Appointment</li>
+                    </ol>
                 </div>
 
             </div>
+        </section><!-- End Breadcrumbs Section -->
 
-            <button type="submit" class="btn btn-outline-dark m-4">Create an Account and Continue...</button>
+        <section class="inner-page">
+            <div class="container">
+                <form action="/appointment" method='POST'>
+                    {% csrf_token %}
+                    <h3>Answer the questions to book an appointment : </h3>
 
-        </form>
-      </div>
-    </section>
+                    {% comment %} question 1 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. What type of therapy are you looking for?**</strong></p>
 
-  </main><!-- End #main -->
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="type_of_therapy"
+                                value="Individual" id="radio1Example1" />
+                            <label class="form-check-label" for="radio1Example1">
+                                Individual (for myself)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" value="Couples" name="type_of_therapy"
+                                id="radio1Example2" />
+                            <label class="form-check-label" for="radio1Example2">
+                                Couples (for myself and my partner)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="type_of_therapy" value="Teen"
+                                id="radio1Example3" />
+                            <label class="form-check-label" for="radio1Example3">
+                                Teen (for my child)
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <label class="mx-5">Let's walk through the process of finding the best Counsellor for you! We'll
+                        start with some basic questions</label>
+                    <hr>
+
+                    {% comment %} question 2 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. What is your gender identity?**</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="sex" value="male"
+                                id="radio2Example1" />
+                            <label class="form-check-label" for="radio2Example1">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="sex" value="female"
+                                id="radio2Example2" />
+                            <label class="form-check-label" for="radio2Example2">
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="sex" value="others"
+                                id="radio2Example3" />
+                            <label class="form-check-label" for="radio2Example3">
+                                Others
+                            </label>
+                        </div>
+                    </div>
+
+                    {% comment %} question 3 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. How old are you?**</strong></p>
+
+                        <div class="form-check mb-2">
+                            <label class="form-check-label" for="ageNumber">
+                                Select age :
+                            </label>
+                            <input required type="number" name="age" id="ageNumber" min="0" max="100" />
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 4 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. How do you identity?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="gender" value="Straight"
+                                id="radio3Example1" />
+                            <label class="form-check-label" for="radio3Example1">
+                                Straight
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="gender" value="Gay"
+                                id="radio3Example2" />
+                            <label class="form-check-label" for="radio3Example2">
+                                Gay
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="gender" value="Lesbian"
+                                id="radio3Example3" />
+                            <label class="form-check-label" for="radio3Example3">
+                                Lesbian
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="gender" value="Bi or Pan"
+                                id="radio3Example4" />
+                            <label class="form-check-label" for="radio3Example4">
+                                Bi or Pan
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="gender"
+                                value="Prefer not to say" id="radio3Example5" />
+                            <label class="form-check-label" for="radio3Example5">
+                                Prefer not to say
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="gender" value="Others"
+                                id="radio3Example6" />
+                            <label class="form-check-label" for="radio3Example6">
+                                Others
+                            </label>
+                        </div>
+                    </div>
+
+                    {% comment %} question 5 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. What is your relationship status?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="relationship_status"
+                                value="Single" id="radio4Example1" />
+                            <label class="form-check-label" for="radio4Example1">
+                                Single
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="relationship_status"
+                                value="In a relationship" id="radio4Example2" />
+                            <label class="form-check-label" for="radio4Example2">
+                                In a relationship
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="relationship_status"
+                                value="Married" id="radio4Example3" />
+                            <label class="form-check-label" for="radio4Example3">
+                                Married
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="relationship_status"
+                                value="Divorced" id="radio4Example4" />
+                            <label class="form-check-label" for="radio4Example4">
+                                Divorced
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="relationship_status"
+                                value="Widowed" id="radio4Example5" />
+                            <label class="form-check-label" for="radio4Example5">
+                                Widowed
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="relationship_status"
+                                value="Others" id="radio4Example6" />
+                            <label class="form-check-label" for="radio4Example6">
+                                Others
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 6 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Do you consider yourself to be religious?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="religious_status" value="Yes"
+                                id="radio5Example1" />
+                            <label class="form-check-label" for="radio5Example1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="religious_status" value="No"
+                                id="radio5Example2" />
+                            <label class="form-check-label" for="radio5Example2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 7 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Which religion do you identify with? (Optional)</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="religion" value="Hinduism"
+                                id="radio6Example1" />
+                            <label class="form-check-label" for="radio6Example1">
+                                Hinduism
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="religion" value="Sikhism"
+                                id="radio6Example1" />
+                            <label class="form-check-label" for="radio6Example1">
+                                Sikhism
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="religion" value="Islam"
+                                id="radio6Example3" />
+                            <label class="form-check-label" for="radio6Example3">
+                                Islam
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="religion" value="Christianity"
+                                id="radio6Example1" />
+                            <label class="form-check-label" for="radio6Example1">
+                                Christianity
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="religion" value="Judaism"
+                                id="radio6Example2" />
+                            <label class="form-check-label" for="radio6Example2">
+                                Judaism
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="religion" value="Others"
+                                id="radio6Example4" />
+                            <label class="form-check-label" for="radio6Example4">
+                                Others
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 8 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Do you consider yourself to be spiritual?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="spritual_status" value="Yes"
+                                id="radio7Example1" />
+                            <label class="form-check-label" for="radio7Example1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="spritual_status" value="No"
+                                id="radio7Example2" />
+                            <label class="form-check-label" for="radio7Example2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 9 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Have you ever been in therapy before?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="therapy_status" value="Yes"
+                                id="radio8Example1" />
+                            <label class="form-check-label" for="radio8Example1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="therapy_status" value="No"
+                                id="radio8Example2" />
+                            <label class="form-check-label" for="radio8Example2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 10 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. What led you to consider therapy today?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I've been feeling depressed" id="checkbox1Example1" />
+                            <label class="form-check-label" for="checkbox1Example1">
+                                I've been feeling depressed
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I feel anxious or overwhelmed" id="checkbox1Example2" />
+                            <label class="form-check-label" for="checkbox1Example2">
+                                I feel anxious or overwhelmed
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="My mood is interfering with my job/school performance" id="checkbox1Example3" />
+                            <label class="form-check-label" for="checkbox1Example3">
+                                My mood is interfering with my job/school performance
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I struggle with building or maintaining relationships" id="checkbox1Example4" />
+                            <label class="form-check-label" for="checkbox1Example4">
+                                I struggle with building or maintaining relationships
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I can't find purpose and meaning in my life" id="checkbox1Example5" />
+                            <label class="form-check-label" for="checkbox1Example5">
+                                I can't find purpose and meaning in my life
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I am grieving" id="checkbox1Example6" />
+                            <label class="form-check-label" for="checkbox1Example6">
+                                I am grieving
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I have experienced trauma" id="checkbox1Example7" />
+                            <label class="form-check-label" for="checkbox1Example7">
+                                I have experienced trauma
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I need to talk through a specific challenge" id="checkbox1Example8" />
+                            <label class="form-check-label" for="checkbox1Example8">
+                                I need to talk through a specific challenge
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I want to gain self confidence" id="checkbox1Example9" />
+                            <label class="form-check-label" for="checkbox1Example9">
+                                I want to gain self confidence
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="I want to improve myself but I don't know where to start"
+                                id="checkbox1Example10" />
+                            <label class="form-check-label" for="checkbox1Example10">
+                                I want to improve myself but I don't know where to start
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="Recommended to me (friend, family, doctor)" id="checkbox1Example11" />
+                            <label class="form-check-label" for="checkbox1Example11">
+                                Recommended to me (friend, family, doctor)
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy"
+                                value="Just exploring" id="checkbox1Example12" />
+                            <label class="form-check-label" for="checkbox1Example12">
+                                Just exploring
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="reason_for_therapy" value="Other"
+                                id="checkbox1Example13" />
+                            <label class="form-check-label" for="checkbox1Example13">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 11 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. What are your expectations from your therapist? A Counsellor
+                                who...*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="Listens" id="checkbox2Example1" />
+                            <label class="form-check-label" for="checkbox2Example1">
+                                Listens
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="Explores my past" id="checkbox2Example2" />
+                            <label class="form-check-label" for="checkbox2Example2">
+                                Explores my past
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="Teaches me new skills" id="checkbox2Example3" />
+                            <label class="form-check-label" for="checkbox2Example3">
+                                Teaches me new skills
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="challenges my beliefs" id="checkbox2Example4" />
+                            <label class="form-check-label" for="checkbox2Example4">
+                                challenges my beliefs
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="Assigns me homework" id="checkbox2Example5" />
+                            <label class="form-check-label" for="checkbox2Example5">
+                                Assigns me homework
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="Guides me to set goals" id="checkbox2Example6" />
+                            <label class="form-check-label" for="checkbox2Example6">
+                                Guides me to set goals
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="proactively checks in with me" id="checkbox2Example7" />
+                            <label class="form-check-label" for="checkbox2Example7">
+                                proactively checks in with me
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="other" id="checkbox2Example8" />
+                            <label class="form-check-label" for="checkbox2Example8">
+                                other
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="expectation_from_counseller"
+                                value="I don't know" id="checkbox2Example9" />
+                            <label class="form-check-label" for="checkbox2Example9">
+                                I don't know
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 12 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Are you currently experiencing anxiety, panic attacks or have
+                                any phobias?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="anxiety_status" value="Yes"
+                                id="radio9Example1" />
+                            <label class="form-check-label" for="radio9Example1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="anxiety_status" value="No"
+                                id="radio9Example2" />
+                            <label class="form-check-label" for="radio9Example2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <label class="mx-5">Some symptoms of panic attacks include a racing heart, dizziness, or chest
+                        pains</label>
+                    <hr>
+
+
+                    {% comment %} question 13 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Are you currently taking any medication?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="medication_status" value="Yes"
+                                id="radio10Example1" />
+                            <label class="form-check-label" for="radio10Example1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="medication_status" value="No"
+                                id="radio10Example2" />
+                            <label class="form-check-label" for="radio10Example2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 14 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Are you currently experiencing any chronic pain?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="chronic_pain_status" value="Yes"
+                                id="radio11Example1" />
+                            <label class="form-check-label" for="radio11Example1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="chronic_pain_status" value="No"
+                                id="radio11Example2" />
+                            <label class="form-check-label" for="radio11Example2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 15 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. How would you rate your current financial status?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="finantial_status" value="Good"
+                                id="radio12Example1" />
+                            <label class="form-check-label" for="radio12Example1">
+                                Good
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="finantial_status" value="Fair"
+                                id="radio12Example2" />
+                            <label class="form-check-label" for="radio12Example2">
+                                Fair
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="finantial_status" value="Poor"
+                                id="radio12Example3" />
+                            <label class="form-check-label" for="radio12Example3">
+                                Poor
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 16 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Which of the following resources would be useful for
+                                you?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="resources" value="Support Groups"
+                                id="checkbox3Example1" />
+                            <label class="form-check-label" for="checkbox3Example1">
+                                Support Groups
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="resources" value="Therapy Journal"
+                                id="checkbox3Example2" />
+                            <label class="form-check-label" for="checkbox3Example2">
+                                Therapy Journal
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="resources" value="Worksheets"
+                                id="checkbox3Example3" />
+                            <label class="form-check-label" for="checkbox3Example3">
+                                Worksheets
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="resources" value="Goal/Habit Tracking"
+                                id="checkbox3Example4" />
+                            <label class="form-check-label" for="checkbox3Example4">
+                                Goal/Habit Tracking
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="resources"
+                                value="Educational Webinars" id="checkbox3Example5" />
+                            <label class="form-check-label" for="checkbox3Example5">
+                                Educational Webinars
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="resources" value="Other"
+                                id="checkbox3Example6" />
+                            <label class="form-check-label" for="checkbox3Example6">
+                                Other
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="resources" value="I don't know"
+                                id="checkbox3Example7" />
+                            <label class="form-check-label" for="checkbox3Example7">
+                                I don't know
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 17 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. How do you prefer to communicate with your Counsellor?*</strong>
+                        </p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="communication_mode"
+                                value="Mostly via messaging" id="radio13Example1" />
+                            <label class="form-check-label" for="radio13Example1">
+                                Mostly via messaging
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="communication_mode"
+                                value="Mostly via phone or video sessions" id="radio13Example2" />
+                            <label class="form-check-label" for="radio13Example2">
+                                Mostly via phone or video sessions
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="communication_mode"
+                                value="Not sure yet (decide later)" id="radio13Example3" />
+                            <label class="form-check-label" for="radio13Example3">
+                                Not sure yet (decide later)
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 18 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Are there any specific preferences for your
+                                Counsellor?*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="preferences"
+                                value="Male Counsellor " id="radio14Example1" />
+                            <label class="form-check-label" for="radio14Example1">
+                                Male Counsellor
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input required class="form-check-input" type="radio" name="preferences"
+                                value="Female Counsellor" id="radio14Example2" />
+                            <label class="form-check-label" for="radio14Example2">
+                                Female Counsellor
+                            </label>
+                        </div>
+                    </div>
+
+
+                    {% comment %} question 19 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Which country are you in?*</strong></p>
+
+                        {% comment %} <select class="form-select" aria-label="Default select example" name="country">
+
+                        </select> {% endcomment %}
+                        <select class="form-select" id="country" name="country" required>
+                            <option>select country</option>
+                            <option value="AF">Afghanistan</option>
+                            <option value="AX">Aland Islands</option>
+                            <option value="AL">Albania</option>
+                            <option value="DZ">Algeria</option>
+                            <option value="AS">American Samoa</option>
+                            <option value="AD">Andorra</option>
+                            <option value="AO">Angola</option>
+                            <option value="AI">Anguilla</option>
+                            <option value="AQ">Antarctica</option>
+                            <option value="AG">Antigua and Barbuda</option>
+                            <option value="AR">Argentina</option>
+                            <option value="AM">Armenia</option>
+                            <option value="AW">Aruba</option>
+                            <option value="AU">Australia</option>
+                            <option value="AT">Austria</option>
+                            <option value="AZ">Azerbaijan</option>
+                            <option value="BS">Bahamas</option>
+                            <option value="BH">Bahrain</option>
+                            <option value="BD">Bangladesh</option>
+                            <option value="BB">Barbados</option>
+                            <option value="BY">Belarus</option>
+                            <option value="BE">Belgium</option>
+                            <option value="BZ">Belize</option>
+                            <option value="BJ">Benin</option>
+                            <option value="BM">Bermuda</option>
+                            <option value="BT">Bhutan</option>
+                            <option value="BO">Bolivia</option>
+                            <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                            <option value="BA">Bosnia and Herzegovina</option>
+                            <option value="BW">Botswana</option>
+                            <option value="BV">Bouvet Island</option>
+                            <option value="BR">Brazil</option>
+                            <option value="IO">British Indian Ocean Territory</option>
+                            <option value="BN">Brunei Darussalam</option>
+                            <option value="BG">Bulgaria</option>
+                            <option value="BF">Burkina Faso</option>
+                            <option value="BI">Burundi</option>
+                            <option value="KH">Cambodia</option>
+                            <option value="CM">Cameroon</option>
+                            <option value="CA">Canada</option>
+                            <option value="CV">Cape Verde</option>
+                            <option value="KY">Cayman Islands</option>
+                            <option value="CF">Central African Republic</option>
+                            <option value="TD">Chad</option>
+                            <option value="CL">Chile</option>
+                            <option value="CN">China</option>
+                            <option value="CX">Christmas Island</option>
+                            <option value="CC">Cocos (Keeling) Islands</option>
+                            <option value="CO">Colombia</option>
+                            <option value="KM">Comoros</option>
+                            <option value="CG">Congo</option>
+                            <option value="CD">Congo, Democratic Republic of the Congo</option>
+                            <option value="CK">Cook Islands</option>
+                            <option value="CR">Costa Rica</option>
+                            <option value="CI">Cote D'Ivoire</option>
+                            <option value="HR">Croatia</option>
+                            <option value="CU">Cuba</option>
+                            <option value="CW">Curacao</option>
+                            <option value="CY">Cyprus</option>
+                            <option value="CZ">Czech Republic</option>
+                            <option value="DK">Denmark</option>
+                            <option value="DJ">Djibouti</option>
+                            <option value="DM">Dominica</option>
+                            <option value="DO">Dominican Republic</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="EG">Egypt</option>
+                            <option value="SV">El Salvador</option>
+                            <option value="GQ">Equatorial Guinea</option>
+                            <option value="ER">Eritrea</option>
+                            <option value="EE">Estonia</option>
+                            <option value="ET">Ethiopia</option>
+                            <option value="FK">Falkland Islands (Malvinas)</option>
+                            <option value="FO">Faroe Islands</option>
+                            <option value="FJ">Fiji</option>
+                            <option value="FI">Finland</option>
+                            <option value="FR">France</option>
+                            <option value="GF">French Guiana</option>
+                            <option value="PF">French Polynesia</option>
+                            <option value="TF">French Southern Territories</option>
+                            <option value="GA">Gabon</option>
+                            <option value="GM">Gambia</option>
+                            <option value="GE">Georgia</option>
+                            <option value="DE">Germany</option>
+                            <option value="GH">Ghana</option>
+                            <option value="GI">Gibraltar</option>
+                            <option value="GR">Greece</option>
+                            <option value="GL">Greenland</option>
+                            <option value="GD">Grenada</option>
+                            <option value="GP">Guadeloupe</option>
+                            <option value="GU">Guam</option>
+                            <option value="GT">Guatemala</option>
+                            <option value="GG">Guernsey</option>
+                            <option value="GN">Guinea</option>
+                            <option value="GW">Guinea-Bissau</option>
+                            <option value="GY">Guyana</option>
+                            <option value="HT">Haiti</option>
+                            <option value="HM">Heard Island and Mcdonald Islands</option>
+                            <option value="VA">Holy See (Vatican City State)</option>
+                            <option value="HN">Honduras</option>
+                            <option value="HK">Hong Kong</option>
+                            <option value="HU">Hungary</option>
+                            <option value="IS">Iceland</option>
+                            <option value="IN">India</option>
+                            <option value="ID">Indonesia</option>
+                            <option value="IR">Iran, Islamic Republic of</option>
+                            <option value="IQ">Iraq</option>
+                            <option value="IE">Ireland</option>
+                            <option value="IM">Isle of Man</option>
+                            <option value="IL">Israel</option>
+                            <option value="IT">Italy</option>
+                            <option value="JM">Jamaica</option>
+                            <option value="JP">Japan</option>
+                            <option value="JE">Jersey</option>
+                            <option value="JO">Jordan</option>
+                            <option value="KZ">Kazakhstan</option>
+                            <option value="KE">Kenya</option>
+                            <option value="KI">Kiribati</option>
+                            <option value="KP">Korea, Democratic People's Republic of</option>
+                            <option value="KR">Korea, Republic of</option>
+                            <option value="XK">Kosovo</option>
+                            <option value="KW">Kuwait</option>
+                            <option value="KG">Kyrgyzstan</option>
+                            <option value="LA">Lao People's Democratic Republic</option>
+                            <option value="LV">Latvia</option>
+                            <option value="LB">Lebanon</option>
+                            <option value="LS">Lesotho</option>
+                            <option value="LR">Liberia</option>
+                            <option value="LY">Libyan Arab Jamahiriya</option>
+                            <option value="LI">Liechtenstein</option>
+                            <option value="LT">Lithuania</option>
+                            <option value="LU">Luxembourg</option>
+                            <option value="MO">Macao</option>
+                            <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+                            <option value="MG">Madagascar</option>
+                            <option value="MW">Malawi</option>
+                            <option value="MY">Malaysia</option>
+                            <option value="MV">Maldives</option>
+                            <option value="ML">Mali</option>
+                            <option value="MT">Malta</option>
+                            <option value="MH">Marshall Islands</option>
+                            <option value="MQ">Martinique</option>
+                            <option value="MR">Mauritania</option>
+                            <option value="MU">Mauritius</option>
+                            <option value="YT">Mayotte</option>
+                            <option value="MX">Mexico</option>
+                            <option value="FM">Micronesia, Federated States of</option>
+                            <option value="MD">Moldova, Republic of</option>
+                            <option value="MC">Monaco</option>
+                            <option value="MN">Mongolia</option>
+                            <option value="ME">Montenegro</option>
+                            <option value="MS">Montserrat</option>
+                            <option value="MA">Morocco</option>
+                            <option value="MZ">Mozambique</option>
+                            <option value="MM">Myanmar</option>
+                            <option value="NA">Namibia</option>
+                            <option value="NR">Nauru</option>
+                            <option value="NP">Nepal</option>
+                            <option value="NL">Netherlands</option>
+                            <option value="AN">Netherlands Antilles</option>
+                            <option value="NC">New Caledonia</option>
+                            <option value="NZ">New Zealand</option>
+                            <option value="NI">Nicaragua</option>
+                            <option value="NE">Niger</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="NU">Niue</option>
+                            <option value="NF">Norfolk Island</option>
+                            <option value="MP">Northern Mariana Islands</option>
+                            <option value="NO">Norway</option>
+                            <option value="OM">Oman</option>
+                            <option value="PK">Pakistan</option>
+                            <option value="PW">Palau</option>
+                            <option value="PS">Palestinian Territory, Occupied</option>
+                            <option value="PA">Panama</option>
+                            <option value="PG">Papua New Guinea</option>
+                            <option value="PY">Paraguay</option>
+                            <option value="PE">Peru</option>
+                            <option value="PH">Philippines</option>
+                            <option value="PN">Pitcairn</option>
+                            <option value="PL">Poland</option>
+                            <option value="PT">Portugal</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="QA">Qatar</option>
+                            <option value="RE">Reunion</option>
+                            <option value="RO">Romania</option>
+                            <option value="RU">Russian Federation</option>
+                            <option value="RW">Rwanda</option>
+                            <option value="BL">Saint Barthelemy</option>
+                            <option value="SH">Saint Helena</option>
+                            <option value="KN">Saint Kitts and Nevis</option>
+                            <option value="LC">Saint Lucia</option>
+                            <option value="MF">Saint Martin</option>
+                            <option value="PM">Saint Pierre and Miquelon</option>
+                            <option value="VC">Saint Vincent and the Grenadines</option>
+                            <option value="WS">Samoa</option>
+                            <option value="SM">San Marino</option>
+                            <option value="ST">Sao Tome and Principe</option>
+                            <option value="SA">Saudi Arabia</option>
+                            <option value="SN">Senegal</option>
+                            <option value="RS">Serbia</option>
+                            <option value="CS">Serbia and Montenegro</option>
+                            <option value="SC">Seychelles</option>
+                            <option value="SL">Sierra Leone</option>
+                            <option value="SG">Singapore</option>
+                            <option value="SX">Sint Maarten</option>
+                            <option value="SK">Slovakia</option>
+                            <option value="SI">Slovenia</option>
+                            <option value="SB">Solomon Islands</option>
+                            <option value="SO">Somalia</option>
+                            <option value="ZA">South Africa</option>
+                            <option value="GS">South Georgia and the South Sandwich Islands</option>
+                            <option value="SS">South Sudan</option>
+                            <option value="ES">Spain</option>
+                            <option value="LK">Sri Lanka</option>
+                            <option value="SD">Sudan</option>
+                            <option value="SR">Suriname</option>
+                            <option value="SJ">Svalbard and Jan Mayen</option>
+                            <option value="SZ">Swaziland</option>
+                            <option value="SE">Sweden</option>
+                            <option value="CH">Switzerland</option>
+                            <option value="SY">Syrian Arab Republic</option>
+                            <option value="TW">Taiwan, Province of China</option>
+                            <option value="TJ">Tajikistan</option>
+                            <option value="TZ">Tanzania, United Republic of</option>
+                            <option value="TH">Thailand</option>
+                            <option value="TL">Timor-Leste</option>
+                            <option value="TG">Togo</option>
+                            <option value="TK">Tokelau</option>
+                            <option value="TO">Tonga</option>
+                            <option value="TT">Trinidad and Tobago</option>
+                            <option value="TN">Tunisia</option>
+                            <option value="TR">Turkey</option>
+                            <option value="TM">Turkmenistan</option>
+                            <option value="TC">Turks and Caicos Islands</option>
+                            <option value="TV">Tuvalu</option>
+                            <option value="UG">Uganda</option>
+                            <option value="UA">Ukraine</option>
+                            <option value="AE">United Arab Emirates</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="US">United States</option>
+                            <option value="UM">United States Minor Outlying Islands</option>
+                            <option value="UY">Uruguay</option>
+                            <option value="UZ">Uzbekistan</option>
+                            <option value="VU">Vanuatu</option>
+                            <option value="VE">Venezuela</option>
+                            <option value="VN">Viet Nam</option>
+                            <option value="VG">Virgin Islands, British</option>
+                            <option value="VI">Virgin Islands, U.s.</option>
+                            <option value="WF">Wallis and Futuna</option>
+                            <option value="EH">Western Sahara</option>
+                            <option value="YE">Yemen</option>
+                            <option value="ZM">Zambia</option>
+                            <option value="ZW">Zimbabwe</option>
+                        </select>
+
+                    </div>
+
+
+                    {% comment %} question 20 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. What is your preferred language?*</strong></p>
+
+                        <select class="form-select" id="languages" name="language" required>
+                            <option>language</option>
+                            <option value="af">Afrikaans</option>
+                            <option value="sq">Albanian - shqip</option>
+                            <option value="am">Amharic - አማርኛ</option>
+                            <option value="ar">Arabic - العربية</option>
+                            <option value="an">Aragonese - aragonés</option>
+                            <option value="hy">Armenian - հայերեն</option>
+                            <option value="ast">Asturian - asturianu</option>
+                            <option value="az">Azerbaijani - azərbaycan dili</option>
+                            <option value="eu">Basque - euskara</option>
+                            <option value="be">Belarusian - беларуская</option>
+                            <option value="bn">Bengali - বাংলা</option>
+                            <option value="bs">Bosnian - bosanski</option>
+                            <option value="br">Breton - brezhoneg</option>
+                            <option value="bg">Bulgarian - български</option>
+                            <option value="ca">Catalan - català</option>
+                            <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
+                            <option value="zh">Chinese - 中文</option>
+                            <option value="zh-HK">Chinese (Hong Kong) - 中文（香港）</option>
+                            <option value="zh-CN">Chinese (Simplified) - 中文（简体）</option>
+                            <option value="zh-TW">Chinese (Traditional) - 中文（繁體）</option>
+                            <option value="co">Corsican</option>
+                            <option value="hr">Croatian - hrvatski</option>
+                            <option value="cs">Czech - čeština</option>
+                            <option value="da">Danish - dansk</option>
+                            <option value="nl">Dutch - Nederlands</option>
+                            <option value="en">English</option>
+                            <option value="en-AU">English (Australia)</option>
+                            <option value="en-CA">English (Canada)</option>
+                            <option value="en-IN">English (India)</option>
+                            <option value="en-NZ">English (New Zealand)</option>
+                            <option value="en-ZA">English (South Africa)</option>
+                            <option value="en-GB">English (United Kingdom)</option>
+                            <option value="en-US">English (United States)</option>
+                            <option value="eo">Esperanto - esperanto</option>
+                            <option value="et">Estonian - eesti</option>
+                            <option value="fo">Faroese - føroyskt</option>
+                            <option value="fil">Filipino</option>
+                            <option value="fi">Finnish - suomi</option>
+                            <option value="fr">French - français</option>
+                            <option value="fr-CA">French (Canada) - français (Canada)</option>
+                            <option value="fr-FR">French (France) - français (France)</option>
+                            <option value="fr-CH">French (Switzerland) - français (Suisse)</option>
+                            <option value="gl">Galician - galego</option>
+                            <option value="ka">Georgian - ქართული</option>
+                            <option value="de">German - Deutsch</option>
+                            <option value="de-AT">German (Austria) - Deutsch (Österreich)</option>
+                            <option value="de-DE">German (Germany) - Deutsch (Deutschland)</option>
+                            <option value="de-LI">German (Liechtenstein) - Deutsch (Liechtenstein)</option>
+                            <option value="de-CH">German (Switzerland) - Deutsch (Schweiz)</option>
+                            <option value="el">Greek - Ελληνικά</option>
+                            <option value="gn">Guarani</option>
+                            <option value="gu">Gujarati - ગુજરાતી</option>
+                            <option value="ha">Hausa</option>
+                            <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
+                            <option value="he">Hebrew - עברית</option>
+                            <option value="hi">Hindi - हिन्दी</option>
+                            <option value="hu">Hungarian - magyar</option>
+                            <option value="is">Icelandic - íslenska</option>
+                            <option value="id">Indonesian - Indonesia</option>
+                            <option value="ia">Interlingua</option>
+                            <option value="ga">Irish - Gaeilge</option>
+                            <option value="it">Italian - italiano</option>
+                            <option value="it-IT">Italian (Italy) - italiano (Italia)</option>
+                            <option value="it-CH">Italian (Switzerland) - italiano (Svizzera)</option>
+                            <option value="ja">Japanese - 日本語</option>
+                            <option value="kn">Kannada - ಕನ್ನಡ</option>
+                            <option value="kk">Kazakh - қазақ тілі</option>
+                            <option value="km">Khmer - ខ្មែរ</option>
+                            <option value="ko">Korean - 한국어</option>
+                            <option value="ku">Kurdish - Kurdî</option>
+                            <option value="ky">Kyrgyz - кыргызча</option>
+                            <option value="lo">Lao - ລາວ</option>
+                            <option value="la">Latin</option>
+                            <option value="lv">Latvian - latviešu</option>
+                            <option value="ln">Lingala - lingála</option>
+                            <option value="lt">Lithuanian - lietuvių</option>
+                            <option value="mk">Macedonian - македонски</option>
+                            <option value="ms">Malay - Bahasa Melayu</option>
+                            <option value="ml">Malayalam - മലയാളം</option>
+                            <option value="mt">Maltese - Malti</option>
+                            <option value="mr">Marathi - मराठी</option>
+                            <option value="mn">Mongolian - монгол</option>
+                            <option value="ne">Nepali - नेपाली</option>
+                            <option value="no">Norwegian - norsk</option>
+                            <option value="nb">Norwegian Bokmål - norsk bokmål</option>
+                            <option value="nn">Norwegian Nynorsk - nynorsk</option>
+                            <option value="oc">Occitan</option>
+                            <option value="or">Oriya - ଓଡ଼ିଆ</option>
+                            <option value="om">Oromo - Oromoo</option>
+                            <option value="ps">Pashto - پښتو</option>
+                            <option value="fa">Persian - فارسی</option>
+                            <option value="pl">Polish - polski</option>
+                            <option value="pt">Portuguese - português</option>
+                            <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
+                            <option value="pt-PT">Portuguese (Portugal) - português (Portugal)</option>
+                            <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
+                            <option value="qu">Quechua</option>
+                            <option value="ro">Romanian - română</option>
+                            <option value="mo">Romanian (Moldova) - română (Moldova)</option>
+                            <option value="rm">Romansh - rumantsch</option>
+                            <option value="ru">Russian - русский</option>
+                            <option value="gd">Scottish Gaelic</option>
+                            <option value="sr">Serbian - српски</option>
+                            <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
+                            <option value="sn">Shona - chiShona</option>
+                            <option value="sd">Sindhi</option>
+                            <option value="si">Sinhala - සිංහල</option>
+                            <option value="sk">Slovak - slovenčina</option>
+                            <option value="sl">Slovenian - slovenščina</option>
+                            <option value="so">Somali - Soomaali</option>
+                            <option value="st">Southern Sotho</option>
+                            <option value="es">Spanish - español</option>
+                            <option value="es-AR">Spanish (Argentina) - español (Argentina)</option>
+                            <option value="es-419">Spanish (Latin America) - español (Latinoamérica)</option>
+                            <option value="es-MX">Spanish (Mexico) - español (México)</option>
+                            <option value="es-ES">Spanish (Spain) - español (España)</option>
+                            <option value="es-US">Spanish (United States) - español (Estados Unidos)</option>
+                            <option value="su">Sundanese</option>
+                            <option value="sw">Swahili - Kiswahili</option>
+                            <option value="sv">Swedish - svenska</option>
+                            <option value="tg">Tajik - тоҷикӣ</option>
+                            <option value="ta">Tamil - தமிழ்</option>
+                            <option value="tt">Tatar</option>
+                            <option value="te">Telugu - తెలుగు</option>
+                            <option value="th">Thai - ไทย</option>
+                            <option value="ti">Tigrinya - ትግርኛ</option>
+                            <option value="to">Tongan - lea fakatonga</option>
+                            <option value="tr">Turkish - Türkçe</option>
+                            <option value="tk">Turkmen</option>
+                            <option value="tw">Twi</option>
+                            <option value="uk">Ukrainian - українська</option>
+                            <option value="ur">Urdu - اردو</option>
+                            <option value="ug">Uyghur</option>
+                            <option value="uz">Uzbek - o‘zbek</option>
+                            <option value="vi">Vietnamese - Tiếng Việt</option>
+                            <option value="wa">Walloon - wa</option>
+                            <option value="cy">Welsh - Cymraeg</option>
+                            <option value="fy">Western Frisian</option>
+                            <option value="xh">Xhosa</option>
+                            <option value="yi">Yiddish</option>
+                            <option value="yo">Yoruba - Èdè Yorùbá</option>
+                            <option value="zu">Zulu - isiZulu</option>
+                        </select>
+                    </div>
+
+
+                    {% comment %} question 21 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. Please mark all that apply*</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="occupation_status"
+                                value="I'm a student" id="checkbox4Example1" />
+                            <label class="form-check-label" for="checkbox4Example1">
+                                I'm a student
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="occupation_status"
+                                value="I'm a veteran" id="checkbox4Example2" />
+                            <label class="form-check-label" for="checkbox4Example2">
+                                I'm a veteran
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="occupation_status"
+                                value="I'm disabled" id="checkbox4Example3" />
+                            <label class="form-check-label" for="checkbox4Example3">
+                                I'm disabled
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="occupation_status"
+                                value="I'm unemployed" id="checkbox4Example4" />
+                            <label class="form-check-label" for="checkbox4Example4">
+                                I'm unemployed
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="occupation_status"
+                                value="I'm employed but my income is low" id="checkbox4Example5" />
+                            <label class="form-check-label" for="checkbox4Example5">
+                                I'm employed but my income is low
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="occupation_status"
+                                value="I'm financially impacted by the Coronavirus outbreak" id="checkbox4Example6" />
+                            <label class="form-check-label" for="checkbox4Example6">
+                                I'm financially impacted by the Coronavirus outbreak
+                            </label>
+                        </div>
+                    </div>
+
+                    {% comment %} question 22 {% endcomment %}
+                    <div class="question my-5">
+                        <p class="text-left"><strong>Q. I prefer a Counsellor with experience in... *</strong></p>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Depression" id="checkbox5Example1" />
+                            <label class="form-check-label" for="checkbox5Example1">
+                                Depression
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Stress and Anxiety" id="checkbox5Example2" />
+                            <label class="form-check-label" for="checkbox5Example2">
+                                Stress and Anxiety
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Coping with addictions" id="checkbox5Example3" />
+                            <label class="form-check-label" for="checkbox5Example3">
+                                Coping with addictions
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="LGBTQ + related issues" id="checkbox5Example4" />
+                            <label class="form-check-label" for="checkbox5Example4">
+                                LGBTQ + related issues
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Relationship issues" id="checkbox5Example5" />
+                            <label class="form-check-label" for="checkbox5Example5">
+                                Relationship issues
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Family conflicts " id="checkbox5Example7" />
+                            <label class="form-check-label" for="checkbox5Example7">
+                                Family conflicts
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Trauma and abuse" id="checkbox5Example8" />
+                            <label class="form-check-label" for="checkbox5Example8">
+                                Trauma and abuse
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Coping with grief and loss" id="checkbox5Example9" />
+                            <label class="form-check-label" for="checkbox5Example9">
+                                Coping with grief and loss
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Intimacy related issues" id="checkbox5Example10" />
+                            <label class="form-check-label" for="checkbox5Example10">
+                                Intimacy related issues
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Eating disorders" id="checkbox5Example11" />
+                            <label class="form-check-label" for="checkbox5Example11">
+                                Eating disorders
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Parenting issues" id="checkbox5Example12" />
+                            <label class="form-check-label" for="checkbox5Example12">
+                                Parenting issues
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Motivation, self-esteem, and confidence" id="checkbox5Example13" />
+                            <label class="form-check-label" for="checkbox5Example13">
+                                Motivation, self-esteem, and confidence
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Anger management" id="checkbox5Example14" />
+                            <label class="form-check-label" for="checkbox5Example14">
+                                Anger management
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Career difficulties" id="checkbox5Example15" />
+                            <label class="form-check-label" for="checkbox5Example15">
+                                Career difficulties
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Bipolar disorder" id="checkbox5Example16" />
+                            <label class="form-check-label" for="checkbox5Example16">
+                                Bipolar disorder
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Coping with life changes" id="checkbox5Example17" />
+                            <label class="form-check-label" for="checkbox5Example17">
+                                Coping with life changes
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Executive and professional coaching" id="checkbox5Example18" />
+                            <label class="form-check-label" for="checkbox5Example18">
+                                Executive and professional coaching
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Compassion fatigue" id="checkbox5Example19" />
+                            <label class="form-check-label" for="checkbox5Example19">
+                                Compassion fatigue
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="counseller_experience"
+                                value="Concentration, Memory and focus (ADHD)" id="checkbox5Example20" />
+                            <label class="form-check-label" for="checkbox5Example20">
+                                Concentration, Memory and focus (ADHD)
+                            </label>
+                        </div>
+
+                        {% comment %} question 23 {% endcomment %}
+                        <div class="question my-5">
+                            <p class="text-left"><strong>Q. Are there any additional areas you are interested in? We may
+                                    not be able to honor all the preferences, but we will do our best!*</strong></p>
+
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Communication Problems" id="checkbox6Example1" />
+                                <label class="form-check-label" for="checkbox6Example1">
+                                    Communication Problems
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Life Purpose" id="checkbox6Example2" />
+                                <label class="form-check-label" for="checkbox6Example2">
+                                    Life Purpose
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Isolation/ Loneliness" id="checkbox6Example3" />
+                                <label class="form-check-label" for="checkbox6Example3">
+                                    Isolation/ Loneliness
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Self-Love" id="checkbox6Example4" />
+                                <label class="form-check-label" for="checkbox6Example4">
+                                    Self-Love
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Social Anxiety and Phobia" id="checkbox6Example5" />
+                                <label class="form-check-label" for="checkbox6Example5">
+                                    Social Anxiety and Phobia
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Guilt and Shame" id="checkbox6Example7" />
+                                <label class="form-check-label" for="checkbox6Example7">
+                                    Guilt and Shame
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Post - traumatic stress" id="checkbox6Example8" />
+                                <label class="form-check-label" for="checkbox6Example8">
+                                    Post - traumatic stress
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Panic Disorder and Panic Attacks" id="checkbox6Example9" />
+                                <label class="form-check-label" for="checkbox6Example9">
+                                    Panic Disorder and Panic Attacks
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Control Issues" id="checkbox6Example10" />
+                                <label class="form-check-label" for="checkbox6Example10">
+                                    Control Issues
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Forgiveness" id="checkbox6Example11" />
+                                <label class="form-check-label" for="checkbox6Example11">
+                                    Forgiveness
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Caregiver Issues and stress" id="checkbox6Example12" />
+                                <label class="form-check-label" for="checkbox6Example12">
+                                    Caregiver Issues and stress
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Pregnancy and Childbirth" id="checkbox6Example13" />
+                                <label class="form-check-label" for="checkbox6Example13">
+                                    Pregnancy and Childbirth
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Divorce and Separation" id="checkbox6Example14" />
+                                <label class="form-check-label" for="checkbox6Example14">
+                                    Divorce and Separation
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Attachment issues" id="checkbox6Example15" />
+                                <label class="form-check-label" for="checkbox6Example15">
+                                    Attachment issues
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Abandonment" id="checkbox6Example16" />
+                                <label class="form-check-label" for="checkbox6Example16">
+                                    Abandonment
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Body Image" id="checkbox6Example17" />
+                                <label class="form-check-label" for="checkbox6Example17">
+                                    Body Image
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Mood Disorders" id="checkbox6Example18" />
+                                <label class="form-check-label" for="checkbox6Example18">
+                                    Mood Disorders
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Impulsivity" id="checkbox6Example19" />
+                                <label class="form-check-label" for="checkbox6Example19">
+                                    Impulsivity
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Workplace Issues" id="checkbox6Example20" />
+                                <label class="form-check-label" for="checkbox6Example20">
+                                    Workplace Issues
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Money and Financial Issues" id="checkbox6Example21" />
+                                <label class="form-check-label" for="checkbox6Example21">
+                                    Money and Financial Issues
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Chronic Pain Illness and Disability" id="checkbox6Example22" />
+                                <label class="form-check-label" for="checkbox6Example22">
+                                    Chronic Pain Illness and Disability
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Women's Issues" id="checkbox6Example23" />
+                                <label class="form-check-label" for="checkbox6Example23">
+                                    Women's Issues
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Men's Issues" id="checkbox6Example24" />
+                                <label class="form-check-label" for="checkbox6Example24">
+                                    Men's Issues
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Sexuality" id="checkbox6Example25" />
+                                <label class="form-check-label" for="checkbox6Example25">
+                                    Sexuality
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Midlife Crisis" id="checkbox6Example26" />
+                                <label class="form-check-label" for="checkbox6Example26">
+                                    Midlife Crisis
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="Additional_focus_areas"
+                                    value="Narcissism" id="checkbox6Example27" />
+                                <label class="form-check-label" for="checkbox6Example27">
+                                    Narcissism
+                                </label>
+                            </div>
+
+                            <!-- question 24 -->
+                            <div class="question my-5">
+                                <p class="text-left"><strong>Q. What brings you here?*</strong></p>
+                                <p>Join the 12,027 people that started therapy with their tailored Counsellor match this
+                                    week. Let your therapist know what you'd like to work on below. The more information
+                                    you provide, the better you therapist will understand where to begin.</p>
+
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    name="additional_details"></textarea>
+                            </div>
+                        </div>
+                        <hr>
+                        <label class="mx-5">You've completed the questionnaire!</label>
+                        <hr>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-dark m-4">Create an Account and Submit...</button>
+
+                </form>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
 
 </body>
 
 </html>
-  {% endblock body %}
+{% endblock body %}

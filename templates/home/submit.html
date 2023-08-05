@@ -1,29 +1,45 @@
 {% extends 'basic.html' %}
 
 {% block body %}
-<br/>
-<br/>
-<br/>
-<br/>
-<section class="inner-page">
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="mx-3">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-info"> {{message}}</div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<section class="inner-page pt-2">
     <div class="container">
-<h1>Form Submitted Successfully!</h1> <br/>
-<h4>Read the Simplified procedure below : </h4> <br/>
-<p>Hi there! Welcome to Aksar Kounseling! We appreciate your preferences. Here's a guide to help you
-    understand the therapy process. <br/>
-    The therapy process involves finding a qualified and licensed counselor who matches your needs. We
-    will carefully review the information you've shared and connect you with a personalized counselor. Your
-    counselor will reach out to you, and you can start your therapy sessions online. <br/>
-    Your counselor will be a professional with experience in anger management and narcissism treatment.
-    They will provide personalized guidance and support throughout your therapy journey. <br/>
-    You can communicate with your counselor in various ways. You can send audio, video, or text messages
-    in the messaging room at any time. Additionally, you can schedule weekly live sessions lasting 30 to 45
-    minutes via phone, video, or live chat. <br/>
-    If you feel that the counselor you have been matched with isn't the right fit for you, you can request to
-    be matched with a different counselor. We have a vast network of over 10,000 counselors with diverse
-    qualifications and areas of expertise. We will strive to find a counselor who better meets your needs. <br/>
-    We hope this simplified explanation helps you understand our counseling services better. <br/>
-</p>
+        <!-- <h1>Form Submitted Successfully!</h1> <br /> -->
+        <h4>Read the Simplified procedure below : </h4> <br />
+        <p>Hi there! Welcome to Aksar Kounseling! We appreciate your preferences. Here's a guide to help you
+            understand the therapy process. <br />
+            The therapy process involves finding a qualified and licensed counselor who matches your needs. We
+            will carefully review the information you've shared and connect you with a personalized counselor. Your
+            counselor will reach out to you, and you can start your therapy sessions online. <br />
+            Your counselor will be a professional with experience in anger management and narcissism treatment.
+            They will provide personalized guidance and support throughout your therapy journey. <br />
+            You can communicate with your counselor in various ways. You can send audio, video, or text messages
+            in the messaging room at any time. Additionally, you can schedule weekly live sessions lasting 30 to 45
+            minutes via phone, video, or live chat. <br />
+            If you feel that the counselor you have been matched with isn't the right fit for you, you can request to
+            be matched with a different counselor. We have a vast network of over 10,000 counselors with diverse
+            qualifications and areas of expertise. We will strive to find a counselor who better meets your needs.
+            <br />
+            We hope this simplified explanation helps you understand our counseling services better. <br />
+        </p> <br/>
+
+        <a href="/"><button class="mb-2 btn btn-lg rounded-3 btn-primary">Back to Home</button></a>
+        
 
 </section>
 </div>

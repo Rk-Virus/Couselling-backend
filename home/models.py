@@ -8,19 +8,6 @@ def get_default_array():
     return []
 
 # Create your models here.
-class Profile(models.Model):
-    name = models.CharField(max_length=50, default="")
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    email = models.EmailField(max_length=254, default="")
-    auth_token = models.CharField(max_length=150)
-    pass_token = models.CharField(max_length=150, default="")
-    is_verified = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Contact(models.Model):
     id = models.AutoField
     name = models.CharField(max_length=50, default="")
@@ -62,12 +49,32 @@ class Appointment(models.Model):
     country = models.CharField(max_length=50, default='')
     language = models.CharField(max_length=50, default='')
     mark_that_apply = ArrayField(base_field=models.TextField(), default=get_default_array)
-
-
-class Appointment2(models.Model):
+    
     counseller_experience = ArrayField(base_field=models.TextField(), default=get_default_array)
     Additional_focus_areas = ArrayField(base_field=models.TextField(), default=get_default_array)
     additional_details = models.TextField(default="")
 
+    apt_token = models.CharField(max_length=150, default="")
+
+
+
+# class Appointment2(models.Model):
+#     counseller_experience = ArrayField(base_field=models.TextField(), default=get_default_array)
+#     Additional_focus_areas = ArrayField(base_field=models.TextField(), default=get_default_array)
+#     additional_details = models.TextField(default="")
+
+
+class Profile(models.Model):
+    name = models.CharField(max_length=50, default="")
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=254, default="")
+    is_verified = models.BooleanField(default=False)
+    appointment = models.OneToOneField(Appointment, on_delete=models.CASCADE, null=True)
+    auth_token = models.CharField(max_length=150)
+    pass_token = models.CharField(max_length=150, default="")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 

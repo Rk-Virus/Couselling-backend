@@ -12,13 +12,13 @@ def index(request):
     return render(request, 'home/index.html')
 
 def contact(request):
-    print("/contact running")
+    # print("/contact running")
     if request.method == 'POST':
         name = request.POST.get('name','')
         email = request.POST.get('email','')
         subject = request.POST.get('subject','')
         message = request.POST.get('message','')
-        print(name,email, subject, message)
+        # print(name,email, subject, message)
         contact = Contact(name=name,email=email, subject=subject, message=message)
         contact.save()
         return HttpResponse("Message Sent!")
@@ -29,6 +29,12 @@ def signup(request):
         name = request.POST.get('uname','')
         email = request.POST.get('email','')
         passwd = request.POST.get('password','')
+
+        # apt_token from session
+        apt_token = request.session.get('apt_token')
+
+        # filtering appointment
+        appointment = Appointment.objects.filter(apt_token=apt_token).first()
 
         # checking if user already exists
         if User.objects.filter(username=name).first():
@@ -43,12 +49,13 @@ def signup(request):
 
         # creating profile 
         token = str(uuid.uuid4())
-        profile = Profile.objects.create(name=name, email=email, user=user, auth_token=token)
+        profile = Profile.objects.create(name=name, email=email, user=user, appointment=appointment, auth_token=token)
         profile.save()
 
         send_verification_mail(email, token)
 
         return redirect(f'/verify/{email}')
+
     return render(request, 'home/signUp.html')
 
 def verify(request,email):
@@ -90,9 +97,6 @@ def logout(request):
 
 def appointment(request):
     if request.method == 'POST':
-        # print(request)
-        # print(request.POST.get('finantial_status',''))
-
         # fetching form data 
         type_of_therapy = request.POST.get('type_of_therapy','')
         sex = request.POST.get('sex','')
@@ -115,8 +119,17 @@ def appointment(request):
         country = request.POST.get('country','')
         language = request.POST.get('language','')
         occupation_status = request.POST.getlist('occupation_status','')
-        # print(chronic_pain_status)
-        appointment = Appointment(type_of_therapy=type_of_therapy, sex=sex, age=age, gender=gender, relationship_status=relationship_status,is_religious=religious_status,religious_status=religion,is_spritual=spritual_status,taken_therapy=therapy_status,therapy_reason=reason_for_therapy,expectations=expectation_from_counseller, is_anxious=anxiety_status,taking_medications=medication_status, having_chronic_pain=chronic_pain_status, financial_status=finantial_status, resources=resources, communication_mode=communication_mode, preferences=preferences, country=country, language=language, mark_that_apply=occupation_status)
+
+        counseller_experience = request.POST.getlist('counseller_experience','')
+        Additional_focus_areas = request.POST.getlist('Additional_focus_areas','')
+        additional_details = request.POST.get('additional_details','')
+
+        # generating appointment token and saving in session and model
+        appoint_token = str(uuid.uuid4())
+        request.session['apt_token'] = appoint_token
+
+        # creating appointment object 
+        appointment = Appointment(type_of_therapy=type_of_therapy, sex=sex, age=age, gender=gender, relationship_status=relationship_status,is_religious=religious_status,religious_status=religion,is_spritual=spritual_status,taken_therapy=therapy_status,therapy_reason=reason_for_therapy,expectations=expectation_from_counseller, is_anxious=anxiety_status,taking_medications=medication_status, having_chronic_pain=chronic_pain_status, financial_status=finantial_status, resources=resources, communication_mode=communication_mode, preferences=preferences, country=country, language=language, mark_that_apply=occupation_status, counseller_experience=counseller_experience,Additional_focus_areas=Additional_focus_areas, additional_details=additional_details, apt_token=appoint_token)
 
         #saving appointment
         appointment.save()
@@ -124,21 +137,22 @@ def appointment(request):
         #redirecting
         return redirect("/signup")
     
+    
     return render(request, 'home/appointment.html')
 
 
 
-def appointment2(request):
-    if request.method == 'POST':
-        counseller_experience = request.POST.getlist('counseller_experience','')
-        Additional_focus_areas = request.POST.getlist('Additional_focus_areas','')
-        additional_details = request.POST.get('additional_details','')
+# def appointment2(request):
+#     if request.method == 'POST':
+#         counseller_experience = request.POST.getlist('counseller_experience','')
+#         Additional_focus_areas = request.POST.getlist('Additional_focus_areas','')
+#         additional_details = request.POST.get('additional_details','')
 
-        print(counseller_experience, additional_details, Additional_focus_areas)
-        appointment2 = Appointment2(counseller_experience=counseller_experience,Additional_focus_areas=Additional_focus_areas, additional_details=additional_details)
-        appointment2.save()
-        return render(request, 'home/submit.html')
-    return render(request, 'home/appointment2.html')
+#         print(counseller_experience, additional_details, Additional_focus_areas)
+#         appointment2 = Appointment2(counseller_experience=counseller_experience,Additional_focus_areas=Additional_focus_areas, additional_details=additional_details)
+#         appointment2.save()
+#         return render(request, 'home/submit.html')
+#     return render(request, 'home/appointment2.html')
 
 
 def send_verification_mail(email, token):
@@ -151,19 +165,21 @@ def send_verification_mail(email, token):
 def verifyemail(request,token):
     try:
         verifiedProfile = Profile.objects.filter(auth_token=token).first()
-        # print(verifiedProfile)
         if verifiedProfile:
             if verifiedProfile.is_verified:
                 messages.success(request,"Email is already verified!")
-                return redirect('/login')
+                # return redirect('/login')
+                return render(request, 'home/submit.html')
+
 
             verifiedProfile.is_verified = True
             verifiedProfile.save()
             messages.success(request, "Your account has been verified!")
-            return redirect('/login')
-        else:
+            # return redirect('/login')
+            return render(request, 'home/submit.html')
+        if verifiedProfile is None:
             messages.success(request, "Sorry, email verification failed...")
-            redirect('/signup')
+            return redirect('/signup')
     except Exception as e:
         print(e)
 
