@@ -35,8 +35,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ravim70655@gmail.com'
-EMAIL_HOST_PASSWORD = 'jzkwfkojzfxqcrze'
+EMAIL_HOST_USER = 'aksar4you@gmail.com'
+EMAIL_HOST_PASSWORD = 'fnzgiyrhgdcvctpp'
 DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
 
 
@@ -92,10 +92,18 @@ WSGI_APPLICATION = 'Counselling_backend.wsgi.app'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'aksardb',
+        # dev
+        # 'NAME': 'aksardb',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'postgres',
+        # 'HOST': 'localhost'
+
+        #prod
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost'
+        'PASSWORD': '4titAcnaQxWAaLpdbjvS',
+        'HOST': 'containers-us-west-41.railway.app',
+        'PORT':'6457'
     }
 }
 
