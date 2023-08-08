@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)4&i@v-t26l2drwg^g^r5xqu(22ln2_d&zj$&gejaw!c#ijh-n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['localhost', '.vercel.app', 'aksrcs.com']
 ALLOWED_HOSTS = ['*']
@@ -82,7 +82,6 @@ TEMPLATES = [
     },
 ]
 
-# vercel_app/settings.py
 WSGI_APPLICATION = 'Counselling_backend.wsgi.app'
 
 
@@ -101,9 +100,9 @@ DATABASES = {
         #prod
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'f65ToNVTxnODpvytNkTQ',
-        'HOST': 'containers-us-west-34.railway.app',
-        'PORT':'6179'
+        'PASSWORD': 'JjM7HNzG1JilUVoH4Emf',
+        'HOST': 'containers-us-west-116.railway.app',
+        'PORT':'7832'
     }
 }
 
@@ -149,21 +148,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #     BASE_DIR / "static",
 #     # "/var/www/static/",
 # ]
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # message tags 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-# managing media 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js'
-TINYMCE_COMPRESSOR = False
