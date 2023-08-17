@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)4&i@v-t26l2drwg^g^r5xqu(22ln2_d&zj$&gejaw!c#ijh-n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['localhost', '.vercel.app', 'aksrcs.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '62.72.12.106']
 
 
 # Verify Email configurations 
@@ -91,18 +91,11 @@ WSGI_APPLICATION = 'Counselling_backend.wsgi.app'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # dev
-        # 'NAME': 'aksardb',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'postgres',
-        # 'HOST': 'localhost'
-
-        #prod
-        'NAME': 'railway',
+        'NAME': 'aksardb',
         'USER': 'postgres',
-        'PASSWORD': 'JjM7HNzG1JilUVoH4Emf',
-        'HOST': 'containers-us-west-116.railway.app',
-        'PORT':'7832'
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -143,12 +136,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #Used on production
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 #other dirs to search static files
 STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",
-    # "/var/www/static/",
+    "/var/www/Aksar-Counselling/staticfiles/",
 ]
 
 # message tags 
